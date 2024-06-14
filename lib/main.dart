@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_journo_blog_app/core/contants/my_colors.dart';
-import 'package:flutter_journo_blog_app/core/contants/my_strings.dart';
-import 'package:flutter_journo_blog_app/core/themes/app_themes.dart';
+import 'core/themes/app_themes.dart';
+import 'core/contants/my_strings.dart';
 
 void main() {
   runApp(const MyApp());

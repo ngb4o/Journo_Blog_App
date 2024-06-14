@@ -3,6 +3,8 @@ import 'package:flutter_journo_blog_app/core/contants/my_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppThemes {
+  AppThemes._();
+
   //light theme
   static final light = ThemeData(
     colorScheme: ColorScheme.fromSeed(seedColor: MyColors.primaryColor),
