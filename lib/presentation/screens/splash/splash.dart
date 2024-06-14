@@ -1,5 +1,6 @@
 part of 'splash_imports.dart';
 
+@RoutePage()
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -10,6 +11,11 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Nguyen Gia Bao'),
+        centerTitle: true,
+      ),
+    );
   }
 }

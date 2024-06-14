@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_journo_blog_app/presentation/router/router_imports.dart';
 import 'core/themes/app_themes.dart';
 import 'core/contants/my_strings.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Journo',
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
-      home: MyHomePage(),
+      routerConfig: _appRouter.config(),
     );
   }
 }
