@@ -41,7 +41,7 @@ class _OnBoardState extends State<OnBoard> {
                 ],
               ).expand(),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => AutoRouter.of(context).push(const AuthRoute()),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: MyColors.primaryColor,
                   minimumSize: Size(MediaQuery.of(context).size.width, 44.h),
@@ -71,10 +71,9 @@ class _OnBoardState extends State<OnBoard> {
                     // PageController
                     count: 3,
                     effect: const WormEffect(
-                      activeDotColor: MyColors.primaryColor,
-                      dotHeight: 12,
-                      dotWidth: 12
-                    ),
+                        activeDotColor: MyColors.primaryColor,
+                        dotHeight: 12,
+                        dotWidth: 12),
                     // your preferred effect
                     onDotClicked: (index) {},
                   ),
@@ -86,7 +85,7 @@ class _OnBoardState extends State<OnBoard> {
                       .make(),
                 ],
               ),
-              15.heightBox,
+              30.heightBox,
             ],
           ),
         ),
