@@ -26,7 +26,7 @@ class _OnBoardState extends State<OnBoard> {
                 height: 10,
               ),
               Image.asset(
-                'assets/images/main_logo.png',
+                MyAssets.mainLogo,
                 color: MyColors.primaryColor,
                 height: 42,
                 width: 139,
@@ -44,9 +44,9 @@ class _OnBoardState extends State<OnBoard> {
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: MyColors.primaryColor,
-                  minimumSize: Size(MediaQuery.of(context).size.width, 44),
+                  minimumSize: Size(MediaQuery.of(context).size.width, 44.h),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(11),
+                    borderRadius: BorderRadius.circular(11.r),
                   ),
                 ),
                 child: 'Get Started'
@@ -70,7 +70,7 @@ class _OnBoardState extends State<OnBoard> {
                     controller: onBoardViewModel.pageController,
                     // PageController
                     count: 3,
-                    effect: WormEffect(
+                    effect: const WormEffect(
                       activeDotColor: MyColors.primaryColor,
                       dotHeight: 12,
                       dotWidth: 12
