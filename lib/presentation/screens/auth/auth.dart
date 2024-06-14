@@ -1,5 +1,6 @@
 part of 'auth_imports.dart';
 
+@RoutePage()
 class Auth extends StatefulWidget {
   const Auth({super.key});
 

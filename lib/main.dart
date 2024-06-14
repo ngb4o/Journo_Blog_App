@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_journo_blog_app/presentation/router/router_imports.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/themes/app_themes.dart';
 import 'core/contants/my_strings.dart';
 
@@ -14,13 +15,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'Journo',
-      theme: AppThemes.light,
-      darkTheme: AppThemes.dark,
-      routerConfig: _appRouter.config(),
-    );
+    return ScreenUtilInit(
+        designSize: const Size(390, 844),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: 'Journo',
+            theme: AppThemes.light,
+            darkTheme: AppThemes.dark,
+            routerConfig: _appRouter.config(),
+          );
+        });
   }
 }
 
