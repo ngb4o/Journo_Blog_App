@@ -12,9 +12,15 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Nguyen Gia Bao'),
-        centerTitle: true,
+      backgroundColor: MyColors.primaryColor,
+      body: Center(
+        child: FadedScaleAnimation(
+          child: Image.asset(
+            'assets/images/main_logo.png',
+            height: 42,
+            width: 139,
+          ),
+        ),
       ),
     );
   }

@@ -5,5 +5,4 @@ class MyColors {
 
   static const Color primaryColor = Colors.orange;
   static const Color secondaryColor = Colors.green;
-
 }

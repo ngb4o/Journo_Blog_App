@@ -8,28 +8,50 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter_journo_blog_app/presentation/screens/splash/splash_imports.dart'
+import 'package:auto_route/auto_route.dart' as _i3;
+import 'package:flutter_journo_blog_app/presentation/screens/onboard/onboard_imports.dart'
     as _i1;
+import 'package:flutter_journo_blog_app/presentation/screens/splash/splash_imports.dart'
+    as _i2;
 
-abstract class $AppRouter extends _i2.RootStackRouter {
+abstract class $AppRouter extends _i3.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i2.PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) {
-      return _i2.AutoRoutePage<dynamic>(
+  final Map<String, _i3.PageFactory> pagesMap = {
+    OnBoardRoute.name: (routeData) {
+      return _i3.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.Splash(),
+        child: const _i1.OnBoard(),
       );
-    }
+    },
+    SplashRoute.name: (routeData) {
+      return _i3.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.Splash(),
+      );
+    },
   };
 }
 
 /// generated route for
-/// [_i1.Splash]
-class SplashRoute extends _i2.PageRouteInfo<void> {
-  const SplashRoute({List<_i2.PageRouteInfo>? children})
+/// [_i1.OnBoard]
+class OnBoardRoute extends _i3.PageRouteInfo<void> {
+  const OnBoardRoute({List<_i3.PageRouteInfo>? children})
+      : super(
+          OnBoardRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OnBoardRoute';
+
+  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.Splash]
+class SplashRoute extends _i3.PageRouteInfo<void> {
+  const SplashRoute({List<_i3.PageRouteInfo>? children})
       : super(
           SplashRoute.name,
           initialChildren: children,
@@ -37,5 +59,5 @@ class SplashRoute extends _i2.PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const _i2.PageInfo<void> page = _i2.PageInfo<void>(name);
+  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
 }
