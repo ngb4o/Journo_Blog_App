@@ -40,41 +40,19 @@ class _AuthState extends State<Auth> {
                     .size(28.sp)
                     .white
                     .make(),
-
                 20.h.heightBox,
-
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: MyColors.primaryColor,
-                    minimumSize: Size(MediaQuery.of(context).size.width, 44.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(11.r),
-                    ),
-                  ),
-                  child: 'Login'
-                      .text
-                      .size(16)
-                      .fontWeight(FontWeight.w700)
-                      .color(Colors.white)
-                      .make(),
+                //login button
+                PrimaryButton(
+                  title: 'Login',
+                  onPressed: () =>
+                      AutoRouter.of(context).push(const LoginRoute()),
                 ),
                 12.h.heightBox,
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    minimumSize: Size(MediaQuery.of(context).size.width, 44.h),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(11.r),
-                        side: const BorderSide(color: MyColors.white)),
-                  ),
-                  child: 'Register'
-                      .text
-                      .size(16)
-                      .fontWeight(FontWeight.w700)
-                      .color(Colors.white)
-                      .make(),
+                //register button
+                OutlineButton(
+                  title: 'Register',
+                  onPressed: () =>
+                      AutoRouter.of(context).push(const RegisterRoute()),
                 ),
                 30.h.heightBox,
               ],

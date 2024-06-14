@@ -1,5 +1,6 @@
 part of 'register_imports.dart';
 
+@RoutePage()
 class Register extends StatefulWidget {
   const Register({super.key});
 
