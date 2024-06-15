@@ -16,7 +16,9 @@ class _AuthState extends State<Auth> {
         image: DecorationImage(
           image: AssetImage(
             'assets/images/auth_bg.png',
+
           ),
+          fit: BoxFit.cover
         ),
       ),
       child: Scaffold(

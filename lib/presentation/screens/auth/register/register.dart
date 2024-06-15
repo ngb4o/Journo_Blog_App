@@ -79,7 +79,7 @@ class _RegisterState extends State<Register> {
                       ),
                       40.h.heightBox,
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
                             width: 220,
@@ -91,12 +91,6 @@ class _RegisterState extends State<Register> {
                               contentPadding: EdgeInsets.zero,
                             ),
                           ),
-                          Expanded(
-                              child: 'Forgot Password'
-                                  .text
-                                  .size(14)
-                                  .align(TextAlign.center)
-                                  .make()),
                         ],
                       ),
                       40.h.heightBox,
