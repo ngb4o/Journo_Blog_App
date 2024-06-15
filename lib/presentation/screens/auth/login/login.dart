@@ -53,12 +53,8 @@ class _LoginState extends State<Login> {
                             .fontWeight(FontWeight.w600)
                             .make(),
                         8.h.heightBox,
-                        const VxTextField(
-                          fillColor: Colors.transparent,
-                          borderColor: MyColors.primaryColor,
-                          borderType: VxTextFieldBorderType.roundLine,
-                          borderRadius: 10,
-                          prefixIcon: Icon(
+                        const TextFieldLogin(
+                          iconTextField: Icon(
                             Icons.email,
                             color: MyColors.primaryColor,
                           ),
@@ -71,18 +67,13 @@ class _LoginState extends State<Login> {
                             .fontWeight(FontWeight.w600)
                             .make(),
                         8.h.heightBox,
-                        const VxTextField(
-                          isPassword: true,
-                          obscureText: true,
-                          suffixColor: MyColors.primaryColor,
-                          fillColor: Colors.transparent,
-                          borderColor: MyColors.primaryColor,
-                          borderType: VxTextFieldBorderType.roundLine,
-                          borderRadius: 10,
-                          prefixIcon: Icon(
+                        const TextFieldLogin(
+                          iconTextField: Icon(
                             Icons.lock,
                             color: MyColors.primaryColor,
                           ),
+                          isPassword: true,
+                          obscureText: true,
                         ),
                         20.h.heightBox,
                         Row(

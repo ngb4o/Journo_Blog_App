@@ -52,12 +52,8 @@ class _RegisterState extends State<Register> {
                             .fontWeight(FontWeight.w600)
                             .make(),
                         8.h.heightBox,
-                        const VxTextField(
-                          fillColor: Colors.transparent,
-                          borderColor: MyColors.primaryColor,
-                          borderType: VxTextFieldBorderType.roundLine,
-                          borderRadius: 10,
-                          prefixIcon: Icon(
+                        const TextFieldRegister(
+                          iconTextField: Icon(
                             Icons.email,
                             color: MyColors.primaryColor,
                           ),
@@ -69,18 +65,13 @@ class _RegisterState extends State<Register> {
                             .fontWeight(FontWeight.w600)
                             .make(),
                         8.h.heightBox,
-                        const VxTextField(
-                          isPassword: true,
-                          obscureText: true,
-                          fillColor: Colors.transparent,
-                          borderColor: MyColors.primaryColor,
-                          suffixColor: MyColors.primaryColor,
-                          borderType: VxTextFieldBorderType.roundLine,
-                          borderRadius: 10,
-                          prefixIcon: Icon(
+                        const TextFieldRegister(
+                          iconTextField: Icon(
                             Icons.lock,
                             color: MyColors.primaryColor,
                           ),
+                          obscureText: true,
+                          isPassword: true,
                         ),
                         20.h.heightBox,
                         'Confirm Password'
@@ -89,18 +80,13 @@ class _RegisterState extends State<Register> {
                             .fontWeight(FontWeight.w600)
                             .make(),
                         8.h.heightBox,
-                        const VxTextField(
-                          isPassword: true,
-                          suffixColor: MyColors.primaryColor,
-                          obscureText: true,
-                          fillColor: Colors.transparent,
-                          borderColor: MyColors.primaryColor,
-                          borderType: VxTextFieldBorderType.roundLine,
-                          borderRadius: 10,
-                          prefixIcon: Icon(
+                        const TextFieldRegister(
+                          iconTextField: Icon(
                             Icons.lock,
                             color: MyColors.primaryColor,
                           ),
+                          obscureText: true,
+                          isPassword: true,
                         ),
                         10.h.heightBox,
                         Row(
@@ -130,7 +116,7 @@ class _RegisterState extends State<Register> {
                         ),
                         10.h.heightBox,
                         PrimaryButton(
-                          title: 'Login',
+                          title: 'Sign Up',
                           onPressed: () {},
                         ),
                         30.h.heightBox,

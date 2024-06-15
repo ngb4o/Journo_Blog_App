@@ -10,7 +10,7 @@ class OnBoardFirst extends StatelessWidget {
         Image.asset(
           'assets/images/onboard1.png',
           height: 333.h,
-          width: 333.h,
+          width: 333.w,
         ),
         'Discover, engage and read the latest articles oras well as share your '
                 'own thoughts and ideas with the community.'
