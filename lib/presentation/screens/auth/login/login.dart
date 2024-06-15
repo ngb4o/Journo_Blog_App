@@ -80,11 +80,11 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           Expanded(
-                            child: 'Forgot Password'
-                                .text
-                                .size(14)
-                                .align(TextAlign.center).make()
-                          ),
+                              child: 'Forgot Password'
+                                  .text
+                                  .size(14)
+                                  .align(TextAlign.center)
+                                  .make()),
                         ],
                       ),
                       40.h.heightBox,
@@ -93,12 +93,16 @@ class _LoginState extends State<Login> {
                         onPressed: () {},
                       ),
                       40.h.heightBox,
-                      'Don\'t have an account '
+                      'Don\'t have an account ? '
                           .richText
                           .size(14)
                           .color(MyColors.primaryColor)
                           .withTextSpanChildren([
-                        const TextSpan(
+                        TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = ()=> AutoRouter.of(context).push(
+                                  const RegisterRoute(),
+                                ),
                           text: 'Sign Up',
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
