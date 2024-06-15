@@ -22,6 +22,8 @@ class _OnBoardState extends State<OnBoard> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              15.h.heightBox,
+
               Image.asset(
                 MyAssets.mainLogo,
                 color: MyColors.primaryColor,

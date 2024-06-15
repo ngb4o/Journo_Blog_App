@@ -29,10 +29,12 @@ class _AuthState extends State<Auth> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                20.h.heightBox,
+
                 Image.asset(
                   MyAssets.mainLogo,
-                  width: 139.w,
-                  height: 42.h,
+                  width: 139,
+                  height: 42,
                 ).centered(),
                 const Spacer(),
                 'Explore the word,\nBillions of Thoughts.'

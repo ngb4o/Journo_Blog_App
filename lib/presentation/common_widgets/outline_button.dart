@@ -1,10 +1,11 @@
-
 part of 'common_widget_imports.dart';
 
 class OutlineButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
-  const OutlineButton({super.key, required this.title, required this.onPressed});
+
+  const OutlineButton(
+      {super.key, required this.title, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +13,13 @@ class OutlineButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.transparent,
-        minimumSize: Size(MediaQuery.of(context).size.width, 44.h),
+        minimumSize: Size(MediaQuery.of(context).size.width, 44),
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(11.r),
-            side: const BorderSide(color: MyColors.white)),
+          borderRadius: BorderRadius.circular(11.r),
+          side: const BorderSide(color: MyColors.white),
+        ),
       ),
-      child: title
-          .text
+      child: title.text
           .size(16)
           .fontWeight(FontWeight.w700)
           .color(Colors.white)
