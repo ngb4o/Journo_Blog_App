@@ -18,7 +18,7 @@ class _RegisterState extends State<Register> {
           child: SafeArea(
             child: Column(
               children: [
-                20.h.heightBox,
+                30.h.heightBox,
                 Image.asset(
                   MyAssets.mainLogo,
                   width: 139,

@@ -16,7 +16,7 @@ class OutlineButton extends StatelessWidget {
         minimumSize: Size(MediaQuery.of(context).size.width, 44),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(11.r),
-          side: const BorderSide(color: MyColors.white),
+          side: const BorderSide(color: MyColors.white, width: 2),
         ),
       ),
       child: title.text
