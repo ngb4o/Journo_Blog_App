@@ -22,14 +22,11 @@ class _OnBoardState extends State<OnBoard> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 10,
-              ),
               Image.asset(
                 MyAssets.mainLogo,
                 color: MyColors.primaryColor,
-                height: 42,
-                width: 139,
+                height: 42.h,
+                width: 139.w,
               ),
               63.heightBox,
               PageView(
@@ -40,29 +37,17 @@ class _OnBoardState extends State<OnBoard> {
                   OnBoardThird(),
                 ],
               ).expand(),
-              ElevatedButton(
+              PrimaryButton(
+                title: 'Get Started',
                 onPressed: () => AutoRouter.of(context).push(const AuthRoute()),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: MyColors.primaryColor,
-                  minimumSize: Size(MediaQuery.of(context).size.width, 44.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(11.r),
-                  ),
-                ),
-                child: 'Get Started'
-                    .text
-                    .size(16)
-                    .fontWeight(FontWeight.w700)
-                    .color(Colors.white)
-                    .make(),
               ),
-              61.heightBox,
+              61.h.heightBox,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   'Skip'
                       .text
-                      .size(16)
+                      .size(16.sp)
                       .fontWeight(FontWeight.w700)
                       .color(MyColors.primaryColor)
                       .make(),
@@ -79,13 +64,13 @@ class _OnBoardState extends State<OnBoard> {
                   ),
                   'Next'
                       .text
-                      .size(16)
+                      .size(16.sp)
                       .fontWeight(FontWeight.w700)
                       .color(MyColors.primaryColor)
                       .make(),
                 ],
               ),
-              30.heightBox,
+              30.h.heightBox,
             ],
           ),
         ),

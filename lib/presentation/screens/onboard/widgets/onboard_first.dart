@@ -9,13 +9,13 @@ class OnBoardFirst extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/onboard1.png',
-          height: 333,
-          width: 333,
+          height: 333.h,
+          width: 333.h,
         ),
         'Discover, engage and read the latest articles oras well as share your '
                 'own thoughts and ideas with the community.'
             .text
-            .size(15)
+            .size(15.sp)
             .align(TextAlign.center)
             .fontWeight(FontWeight.w500)
             .make(),
