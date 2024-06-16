@@ -10,6 +10,10 @@ class Categories extends StatefulWidget {
 class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Center(
+        child: 'Screen categories'.text.make(),
+      ),
+    );
   }
 }

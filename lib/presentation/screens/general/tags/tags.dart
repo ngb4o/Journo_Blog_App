@@ -10,6 +10,10 @@ class Tags extends StatefulWidget {
 class _TagsState extends State<Tags> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Center(
+        child: 'Screen Tag'.text.make(),
+      ),
+    );
   }
 }

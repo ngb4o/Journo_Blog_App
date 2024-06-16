@@ -10,6 +10,10 @@ class AddPosts extends StatefulWidget {
 class _AddPostsState extends State<AddPosts> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Center(
+        child: 'Screen add'.text.make(),
+      ),
+    );
   }
 }

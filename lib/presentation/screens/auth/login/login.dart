@@ -127,17 +127,19 @@ class _LoginState extends State<Login> {
                             .richText
                             .size(15)
                             .color(MyColors.primaryColor)
-                            .withTextSpanChildren([
-                          TextSpan(
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => AutoRouter.of(context).push(
-                                    const RegisterRoute(),
-                                  ),
-                            text: 'Sign Up',
-                            style: const TextStyle(
-                                fontWeight: FontWeight.w700, fontSize: 15),
-                          ),
-                        ]).makeCentered(),
+                            .withTextSpanChildren(
+                          [
+                            TextSpan(
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => AutoRouter.of(context).push(
+                                      const RegisterRoute(),
+                                    ),
+                              text: 'Sign Up',
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w700, fontSize: 15),
+                            ),
+                          ],
+                        ).makeCentered(),
                       ],
                     ),
                   ),

@@ -51,14 +51,16 @@ class _GeneralState extends State<General> {
             borderRadius: BorderRadius.circular(30),
             items: items,
             backgroundColor: Colors.white,
-            color: MyColors.primaryColor.withOpacity(0.4),
+            color: MyColors.primaryColor.withOpacity(0.3),
             colorSelected: MyColors.primaryColor,
             indexSelected: visit,
             paddingVertical: 24,
             iconSize: 25,
-            onTap: (int index) => setState(() {
-              visit = index;
-            }),
+            onTap: (int index) => setState(
+              () {
+                visit = index;
+              },
+            ),
           ),
         ));
   }
