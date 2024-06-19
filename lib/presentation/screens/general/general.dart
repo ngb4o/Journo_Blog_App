@@ -51,7 +51,7 @@ class _GeneralState extends State<General> {
           color: Colors.transparent,
         ),
         child: BottomBarFloating(
-          borderRadius: BorderRadius.circular(30),
+          // borderRadius: BorderRadius.circular(30),
           enableShadow: false,
           items: items,
           backgroundColor: Colors.white,
