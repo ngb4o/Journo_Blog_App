@@ -15,19 +15,15 @@ class _GeneralState extends State<General> {
     ),
     TabItem(
       icon: FeatherIcons.tag,
-      // title: 'Shop',
     ),
     TabItem(
       icon: FeatherIcons.plus,
-      // title: 'Wishlist',
     ),
     TabItem(
       icon: FeatherIcons.hash,
-      // title: 'Cart',
     ),
     TabItem(
       icon: FeatherIcons.user,
-      // title: 'profile',
     ),
   ];
 
