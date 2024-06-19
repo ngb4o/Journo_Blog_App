@@ -11,4 +11,7 @@ class MyAssets {
 
   //auth
   static const String authBg = 'assets/images/auth_bg.png';
+
+  //home
+  static const String netflix = 'assets/images/netflix.webp';
 }
