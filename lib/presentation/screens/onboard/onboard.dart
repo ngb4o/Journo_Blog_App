@@ -14,37 +14,44 @@ class _OnBoardState extends State<OnBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         body: SafeArea(
       child: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              15.h.heightBox,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            15.h.heightBox,
 
-              Image.asset(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Image.asset(
                 MyAssets.mainLogo,
                 color: MyColors.primaryColor,
                 height: 42.h,
                 width: 139.w,
               ),
-              63.heightBox,
-              PageView(
-                controller: onBoardViewModel.pageController,
-                children: const [
-                  OnBoardFirst(),
-                  OnBoardSecond(),
-                  OnBoardThird(),
-                ],
-              ).expand(),
-              PrimaryButton(
+            ),
+            63.heightBox,
+            PageView(
+              controller: onBoardViewModel.pageController,
+              children: const [
+                OnBoardFirst(),
+                OnBoardSecond(),
+                OnBoardThird(),
+              ],
+            ).expand(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: PrimaryButton(
                 title: 'Get Started',
                 onPressed: () => AutoRouter.of(context).push(const AuthRoute()),
               ),
-              61.h.heightBox,
-              Row(
+            ),
+            61.h.heightBox,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   'Skip'
@@ -72,9 +79,9 @@ class _OnBoardState extends State<OnBoard> {
                       .make(),
                 ],
               ),
-              30.h.heightBox,
-            ],
-          ),
+            ),
+            30.h.heightBox,
+          ],
         ),
       ),
     ));

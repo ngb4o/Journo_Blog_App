@@ -16,18 +16,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(390, 844),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (context, child) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            title: 'Journo',
-            theme: AppThemes.light,
-            darkTheme: AppThemes.dark,
-            routerConfig: _appRouter.config(),
-          );
-        });
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: 'Journo',
+          theme: AppThemes.light,
+          darkTheme: AppThemes.dark,
+          routerConfig: _appRouter.config(),
+        );
+      },
+    );
   }
 }
 
@@ -43,14 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           MyStrings.appName,
         ),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
