@@ -41,27 +41,19 @@ class _GeneralState extends State<General> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages.elementAt(visit),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.only(bottom: 30, right: 32, left: 32),
-        decoration: const BoxDecoration(
-          color: Colors.transparent,
-        ),
-        child: BottomBarFloating(
-          // borderRadius: BorderRadius.circular(30),
-          enableShadow: false,
-          items: items,
-          backgroundColor: Colors.white,
-          color: MyColors.primaryColor.withOpacity(0.3),
-          colorSelected: MyColors.primaryColor,
-          indexSelected: visit,
-          paddingVertical: 24,
-          iconSize: 24,
-          onTap: (int index) => setState(
-            () {
-              visit = index;
-            },
-          ),
-        ),
+      bottomNavigationBar: BottomBarInspiredInside(
+        items: items,
+        backgroundColor: Colors.white,
+        color: MyColors.primaryColor,
+        colorSelected: Colors.white,
+        indexSelected: visit,
+        iconSize: 24,
+        onTap: (int index) => setState(() {
+          visit = index;
+        }),
+        chipStyle:const ChipStyle(convexBridge: true, background: MyColors.primaryColor),
+        itemStyle: ItemStyle.circle,
+        animated: false,
       ),
     );
   }

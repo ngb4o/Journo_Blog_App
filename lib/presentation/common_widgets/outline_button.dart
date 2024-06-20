@@ -4,8 +4,11 @@ class OutlineButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
 
-  const OutlineButton(
-      {super.key, required this.title, required this.onPressed});
+  const OutlineButton({
+    super.key,
+    required this.title,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
