@@ -17,8 +17,8 @@ class _CategoriesState extends State<Categories> {
         automaticallyImplyLeading: false,
         //remove back
         backgroundColor: MyColors.primaryColor,
-        actions: [
-          const Icon(
+        actions: const [
+          Icon(
             FeatherIcons.plus,
             color: Colors.white,
           ),

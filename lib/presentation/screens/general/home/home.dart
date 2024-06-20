@@ -39,12 +39,17 @@ class _HomeState extends State<Home> {
                   itemBuilder: (context, index) {
                     return Row(
                       children: [
-                        Image.asset(
-                          MyAssets.netflix,
-                          width: 160,
-                          height: 120,
-                          fit: BoxFit.cover,
-                        ).cornerRadius(20),
+                        GestureDetector(
+                          onTap: () => AutoRouter.of(context).push(
+                            const HomeDetailsRoute(),
+                          ),
+                          child: Image.asset(
+                            MyAssets.netflix,
+                            width: 160,
+                            height: 120,
+                            fit: BoxFit.cover,
+                          ).cornerRadius(20),
+                        ),
                         10.w.widthBox,
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +65,11 @@ class _HomeState extends State<Home> {
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const Icon(FeatherIcons.clock, size: 18, color: Colors.grey,),
+                                const Icon(
+                                  FeatherIcons.clock,
+                                  size: 18,
+                                  color: Colors.grey,
+                                ),
                                 5.w.widthBox,
                                 '6 Months ago'.text.color(Colors.grey).make(),
                               ],
@@ -70,7 +79,11 @@ class _HomeState extends State<Home> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 '59 Views'.text.color(Colors.grey).make(),
-                                const Icon(FeatherIcons.bookmark, color: Colors.grey, size: 22,),
+                                const Icon(
+                                  FeatherIcons.bookmark,
+                                  color: Colors.grey,
+                                  size: 22,
+                                ),
                               ],
                             ),
                           ],
