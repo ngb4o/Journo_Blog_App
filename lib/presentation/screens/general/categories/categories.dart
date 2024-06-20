@@ -15,19 +15,43 @@ class _CategoriesState extends State<Categories> {
         title: 'Categories'.text.color(Colors.white).make(),
         centerTitle: true,
         automaticallyImplyLeading: false,
+        //remove back
         backgroundColor: MyColors.primaryColor,
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 8.0),
-            child: Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
+        actions: [
+          const Icon(
+            FeatherIcons.plus,
+            color: Colors.white,
           ),
         ],
       ),
-      body: Center(
-        child: 'Screen categories'.text.make(),
+      body: ListView.separated(
+        itemCount: 10,
+        separatorBuilder: (context, index) => const SizedBox(
+          height: 20,
+        ),
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              leading: '${index + 1}'.text.size(16).make(),
+              title: 'Enter'.text.size(16).make(),
+              trailing: SizedBox(
+                width: 100,
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(FeatherIcons.edit2, color: Colors.green,),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(FeatherIcons.trash, color: Colors.red,),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
