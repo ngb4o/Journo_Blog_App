@@ -51,7 +51,8 @@ class _GeneralState extends State<General> {
         onTap: (int index) => setState(() {
           visit = index;
         }),
-        chipStyle:const ChipStyle(convexBridge: true, background: MyColors.primaryColor),
+        chipStyle: const ChipStyle(
+            convexBridge: true, background: MyColors.primaryColor),
         itemStyle: ItemStyle.circle,
         animated: false,
       ),

@@ -11,6 +11,20 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: 'Categories'.text.color(Colors.white).makeCentered(),
+        backgroundColor: MyColors.primaryColor,
+        actions: const [
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
+          ),
+        ],
+
+      ),
       body: Center(
         child: 'Screen categories'.text.make(),
       ),
