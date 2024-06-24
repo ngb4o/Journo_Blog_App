@@ -4,12 +4,14 @@ class TextFieldLogin extends StatelessWidget {
   final Icon iconTextField;
   final bool isPassword;
   final bool obscureText;
+  final TextEditingController controller;
 
   const TextFieldLogin({
     super.key,
     required this.iconTextField,
     this.isPassword = false,
     this.obscureText = false,
+    required this.controller,
   });
 
   @override
@@ -23,6 +25,7 @@ class TextFieldLogin extends StatelessWidget {
       borderType: VxTextFieldBorderType.roundLine,
       borderRadius: 10,
       prefixIcon: iconTextField,
+      controller: controller,
     );
   }
 }

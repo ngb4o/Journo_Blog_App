@@ -23,7 +23,7 @@ class ApiClient {
       return response;
     } on DioException catch (e) {
       if (e.response != null) {
-        debugPrint(e.response!.data);
+        debugPrint(e.response!.data.toString());
         debugPrint(e.response!.headers.toString());
         debugPrint(e.response!.requestOptions.toString());
         throw ApiException(message: e.response!.statusMessage);
@@ -46,6 +46,7 @@ class ApiClient {
     try {
       debugPrint('========== API REQUEST =========');
       debugPrint('Request url: ${baseOptions.baseUrl + path}');
+      debugPrint('Body: $body');
       var response = await dio.post(
         path,
         data: body,

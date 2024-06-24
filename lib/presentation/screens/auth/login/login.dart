@@ -9,6 +9,15 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  late LoginViewModel loginViewModel;
+
+  @override
+  void initState() {
+    loginViewModel = LoginViewModel(repository: context.read<Repository>());
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,11 +64,12 @@ class _LoginState extends State<Login> {
                             .fontWeight(FontWeight.w600)
                             .make(),
                         8.h.heightBox,
-                        const TextFieldLogin(
-                          iconTextField: Icon(
+                        TextFieldLogin(
+                          iconTextField: const Icon(
                             Icons.email,
                             color: MyColors.primaryColor,
                           ),
+                          controller: loginViewModel.emailController,
                         ),
                         20.h.heightBox,
                         'Password'
@@ -69,13 +79,14 @@ class _LoginState extends State<Login> {
                             .fontWeight(FontWeight.w600)
                             .make(),
                         8.h.heightBox,
-                        const TextFieldLogin(
-                          iconTextField: Icon(
+                        TextFieldLogin(
+                          iconTextField: const Icon(
                             Icons.lock,
                             color: MyColors.primaryColor,
                           ),
                           isPassword: true,
                           obscureText: true,
+                          controller: loginViewModel.passwordController,
                         ),
                         20.h.heightBox,
                         Row(
@@ -120,9 +131,9 @@ class _LoginState extends State<Login> {
                         20.h.heightBox,
                         PrimaryButton(
                           title: 'Login',
-                          onPressed: () => AutoRouter.of(context).push(
-                            const GeneralRoute(),
-                          ),
+                          onPressed: () {
+                            loginViewModel.login(context);
+                          },
                         ),
                         40.h.heightBox,
                         'Don\'t have an account ? '
