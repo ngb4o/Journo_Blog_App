@@ -7,6 +7,7 @@ class LoginViewModel {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   login(context) async {
     var loginData = await repository.authRepo.userLogin(
@@ -15,6 +16,7 @@ class LoginViewModel {
       context,
     );
     if (loginData.accessToken != null) {
+      Utils.saveToken(loginData.accessToken.toString());
       AutoRouter.of(context).push(const GeneralRoute());
     }
   }

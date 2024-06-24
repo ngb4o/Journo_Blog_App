@@ -5,6 +5,7 @@ class TextFieldLogin extends StatelessWidget {
   final bool isPassword;
   final bool obscureText;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
 
   const TextFieldLogin({
     super.key,
@@ -12,6 +13,7 @@ class TextFieldLogin extends StatelessWidget {
     this.isPassword = false,
     this.obscureText = false,
     required this.controller,
+    required this.validator,
   });
 
   @override
@@ -26,6 +28,7 @@ class TextFieldLogin extends StatelessWidget {
       borderRadius: 10,
       prefixIcon: iconTextField,
       controller: controller,
+      validator: validator,
     );
   }
 }

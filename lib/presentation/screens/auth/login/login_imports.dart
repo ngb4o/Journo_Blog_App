@@ -9,6 +9,8 @@ import 'package:flutter_journo_blog_app/data/repositories/repository.dart';
 import 'package:flutter_journo_blog_app/presentation/common_widgets/common_widget_imports.dart';
 import 'package:flutter_journo_blog_app/presentation/router/router_imports.gr.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/auth/login/widgets/widget_imports.dart';
+import 'package:flutter_journo_blog_app/utils/utils.dart';
+import 'package:flutter_journo_blog_app/utils/validations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velocity_x/velocity_x.dart';
 
