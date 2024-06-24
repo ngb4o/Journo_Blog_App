@@ -12,13 +12,16 @@ class OnBoardSecond extends StatelessWidget {
           height: 333.h,
           width: 333.w,
         ),
-        'Customize your reading experience and join the conversation by '
-                'creating an account.'
-            .text
-            .size(15.sp)
-            .align(TextAlign.center)
-            .fontWeight(FontWeight.w500)
-            .make(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: 'Customize your reading experience and join the conversation by '
+                  'creating an account.'
+              .text
+              .size(15.sp)
+              .align(TextAlign.center)
+              .fontWeight(FontWeight.w500)
+              .make(),
+        ),
       ],
     );
   }

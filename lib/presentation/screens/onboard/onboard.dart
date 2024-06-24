@@ -44,8 +44,9 @@ class _OnBoardState extends State<OnBoard> {
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: PrimaryButton(
                     title: 'Get Started',
-                    onPressed: () =>
-                        AutoRouter.of(context).push(const AuthRoute()),
+                    onPressed: () => AutoRouter.of(context).push(
+                      const AuthRoute(),
+                    ),
                   ),
                 ),
                 61.h.heightBox,

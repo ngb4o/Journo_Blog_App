@@ -14,4 +14,7 @@ class MyAssets {
 
   //home
   static const String netflix = 'assets/images/netflix.webp';
+
+  //add posts
+  static const String imagePlaceholder = 'assets/images/image_placeholder.png';
 }

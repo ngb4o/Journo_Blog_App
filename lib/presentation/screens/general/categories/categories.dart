@@ -17,20 +17,24 @@ class _CategoriesState extends State<Categories> {
         automaticallyImplyLeading: false,
         //remove back
         backgroundColor: MyColors.primaryColor,
-        actions: const [
-          Icon(
-            FeatherIcons.plus,
-            color: Colors.white,
+        actions: [
+          GestureDetector(
+            onTap: () => AutoRouter.of(context).push(const CategoriesAddRoute()),
+            child: const Icon(
+              FeatherIcons.plus,
+              color: Colors.white,
+            ).pOnly(right: 10),
           ),
         ],
       ),
       body: ListView.separated(
         itemCount: 10,
         separatorBuilder: (context, index) => const SizedBox(
-          height: 20,
+          height: 10,
         ),
         itemBuilder: (context, index) {
           return Card(
+            color: Colors.white,
             child: ListTile(
               leading: '${index + 1}'.text.size(16).make(),
               title: 'Enter'.text.size(16).make(),
@@ -39,12 +43,12 @@ class _CategoriesState extends State<Categories> {
                 child: Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
-                      icon: const Icon(FeatherIcons.edit2, color: Colors.green,),
+                      onPressed: () => AutoRouter.of(context).push(const CategoriesUpdateRoute()),
+                      icon: const Icon(Icons.edit, color: Colors.green,),
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(FeatherIcons.trash, color: Colors.red,),
+                      icon: const Icon(Icons.restore_from_trash, color: Colors.red,),
                     ),
                   ],
                 ),
