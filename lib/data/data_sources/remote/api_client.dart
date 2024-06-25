@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_journo_blog_app/utils/utils.dart';
 import 'api_constant.dart';
 import 'api_exception.dart';
 
@@ -36,12 +37,11 @@ class ApiClient {
   }
 
   //POST REQUEST
-  Future<Response> postRequest(
-      {required String path, required dynamic body}) async {
+  Future<Response> postRequest({required String path, dynamic body}) async {
+    var token = await Utils.getToken();
+
     final options = Options(
-      headers: {
-        "Authorization": "Bearer 1627|JlAoxHU9RtX6k5C4PlNNCPVBZbXoL3BIOj9rke4X"
-      },
+      headers: {"Authorization": "Bearer $token"},
     );
     try {
       debugPrint('========== API REQUEST =========');
