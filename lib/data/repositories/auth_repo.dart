@@ -7,7 +7,7 @@ import '../data_sources/remote/api_client.dart';
 class AuthRepo extends ApiClient {
   AuthRepo();
 
-  Future<LoginModel> userLogin(String email, String password, context) async {
+  Future<LoginModel> userLogin(String email, String password) async {
     Map body = {
       "email": email,
       "password": password,
@@ -21,11 +21,11 @@ class AuthRepo extends ApiClient {
       if (response.statusCode == 200) {
         final responseData = LoginModel.fromJson(response.data);
         return responseData;
+      } else {
+        throw Exception('Login failed');
       }
     } on Exception catch (e) {
-      VxToast.show(context, msg: e.toString());
-      LoginModel();
+      throw Exception('Login failed');
     }
-    return LoginModel();
   }
 }

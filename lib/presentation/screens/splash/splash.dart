@@ -9,7 +9,6 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-
   @override
   void initState() {
     moveToOnBoard();
@@ -17,9 +16,9 @@ class _SplashState extends State<Splash> {
   }
 
   moveToOnBoard() async {
-    await Future.delayed(const Duration(seconds: 4), () {
-      AutoRouter.of(context).push(const OnBoardRoute());
-    },);
+    await Future.delayed(const Duration(seconds: 2), () {
+      Utils.manipulateLogin(context);
+    });
   }
 
   @override

@@ -8,16 +8,16 @@ import 'core/themes/app_themes.dart';
 import 'data/repositories/repository.dart';
 
 void main() {
-  runApp(
-    RepositoryProvider(
-      create: (context) => Repository(
-        tagsRepo: TagsRepo(),
-        authRepo: AuthRepo(),
-      ),
-      child: MyApp(),
-    ),
-  );
-  // runApp(MyApp());
+  // runApp(
+  //   RepositoryProvider(
+  //     create: (context) => Repository(
+  //       tagsRepo: TagsRepo(),
+  //       authRepo: AuthRepo(),
+  //     ),
+  //     child: MyApp(),
+  //   ),
+  // );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

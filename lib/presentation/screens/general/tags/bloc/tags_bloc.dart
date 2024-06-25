@@ -23,7 +23,7 @@ class TagsBloc extends Bloc<TagsEvent, TagsState> {
     emit(TagsLoadingState());
     var tagsData = await tagsRepo.getAllTags();
     if(tagsData.status == 1) {
-      emit(TagsLoadedState(tagsModel: tagsData));
+      emit(TagsSuccessState(tagsModel: tagsData));
     }
   }
 }
