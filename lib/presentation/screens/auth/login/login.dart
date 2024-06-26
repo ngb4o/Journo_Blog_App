@@ -44,6 +44,11 @@ class _LoginState extends State<Login> {
             if (state is LoginSuccessState) {
               Utils.saveToken(state.loginModel.accessToken.toString());
               AutoRouter.of(context).push(const GeneralRoute());
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                    content:
+                        Text('Login Success: ${state.loginModel.message}')),
+              );
             } else if (state is LoginErrorState) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('Login failed: ${state.message}')),
