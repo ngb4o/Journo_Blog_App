@@ -92,15 +92,11 @@ class _LoginState extends State<Login> {
                                     .color(MyColors.primaryColor)
                                     .fontWeight(FontWeight.bold)
                                     .makeCentered(),
-                                30.h.heightBox,
-                                'Email'
-                                    .text
-                                    .color(MyColors.primaryColor)
-                                    .size(14)
-                                    .fontWeight(FontWeight.w600)
-                                    .make(),
-                                8.h.heightBox,
+                                40.h.heightBox,
                                 TextFieldLogin(
+                                  hintText: 'Email',
+                                  hintTextStyle:
+                                      TextStyle(color: MyColors.primaryColor.withOpacity(0.5)),
                                   iconTextField: const Icon(
                                     Icons.email,
                                     color: MyColors.primaryColor,
@@ -115,15 +111,11 @@ class _LoginState extends State<Login> {
                                     return null;
                                   },
                                 ),
-                                20.h.heightBox,
-                                'Password'
-                                    .text
-                                    .color(MyColors.primaryColor)
-                                    .size(14)
-                                    .fontWeight(FontWeight.w600)
-                                    .make(),
-                                8.h.heightBox,
+                                30.h.heightBox,
                                 TextFieldLogin(
+                                  hintText: 'Password',
+                                  hintTextStyle:
+                                      TextStyle(color: MyColors.primaryColor.withOpacity(0.5)),
                                   iconTextField: const Icon(
                                     Icons.lock,
                                     color: MyColors.primaryColor,
@@ -155,6 +147,8 @@ class _LoginState extends State<Login> {
                                                 side: const BorderSide(
                                                   color: MyColors.primaryColor,
                                                 ),
+                                                activeColor:
+                                                    MyColors.primaryColor,
                                                 value: rememberMe,
                                                 onChanged: (value) {
                                                   setState(() {
@@ -187,7 +181,9 @@ class _LoginState extends State<Login> {
                                 20.h.heightBox,
                                 if (state is LoginLoadingState)
                                   const Center(
-                                    child: CircularProgressIndicator(),
+                                    child: CircularProgressIndicator(
+                                      color: MyColors.primaryColor,
+                                    ),
                                   )
                                 else
                                   PrimaryButton(
@@ -195,7 +191,7 @@ class _LoginState extends State<Login> {
                                     onPressed: _login,
                                   ),
                                 40.h.heightBox,
-                                'Don\'t have an account ? '
+                                'Don\'t have an acscount ? '
                                     .richText
                                     .size(15)
                                     .color(MyColors.primaryColor)

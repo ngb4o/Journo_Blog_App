@@ -1,6 +1,8 @@
 part of 'widget_imports.dart';
 
 class TextFieldLogin extends StatelessWidget {
+  final String hintText;
+  final TextStyle hintTextStyle;
   final Icon iconTextField;
   final bool isPassword;
   final bool obscureText;
@@ -9,6 +11,8 @@ class TextFieldLogin extends StatelessWidget {
 
   const TextFieldLogin({
     super.key,
+    required this.hintText,
+    required this.hintTextStyle,
     required this.iconTextField,
     this.isPassword = false,
     this.obscureText = false,
@@ -19,6 +23,8 @@ class TextFieldLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxTextField(
+      hint: hintText,
+      hintStyle: hintTextStyle,
       isPassword: isPassword,
       obscureText: obscureText,
       fillColor: Colors.transparent,

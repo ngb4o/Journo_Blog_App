@@ -9,6 +9,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  bool rememberMe = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,8 +103,13 @@ class _RegisterState extends State<Register> {
                                     side: const BorderSide(
                                       color: MyColors.primaryColor,
                                     ),
-                                    value: false,
-                                    onChanged: (value) {},
+                                    activeColor: MyColors.primaryColor,
+                                    value: rememberMe,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        rememberMe = value!;
+                                      });
+                                    },
                                   ),
                                   'Remember Me'
                                       .text

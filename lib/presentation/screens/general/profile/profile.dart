@@ -41,7 +41,6 @@ class _ProfileState extends State<Profile> {
               actions: [
                 GestureDetector(
                   onTap: () {
-                    print('tap');
                     _logout();
                   },
                   child: const Icon(
@@ -55,13 +54,14 @@ class _ProfileState extends State<Profile> {
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(bottom: 20),
+                    padding: const EdgeInsets.only(bottom: 40),
                     width: MediaQuery.of(context).size.width,
                     decoration: const BoxDecoration(
                       color: MyColors.primaryColor,
                       borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(40),
-                          bottomRight: Radius.circular(40)),
+                        bottomLeft: Radius.circular(40),
+                        bottomRight: Radius.circular(40),
+                      ),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -145,7 +145,7 @@ class _ProfileState extends State<Profile> {
                                         .color(Colors.black)
                                         .make()
                                         .expand(),
-                                    Icon(FeatherIcons.moreVertical)
+                                    const Icon(FeatherIcons.moreVertical)
                                   ],
                                 ),
                               ],
