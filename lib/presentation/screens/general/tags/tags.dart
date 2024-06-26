@@ -41,62 +41,64 @@ class _TagsState extends State<Tags> {
           ),
         ],
       ),
-      body: BlocConsumer<TagsBloc, TagsState>(
-        bloc: tagsBloc,
-        listenWhen: (previous, current) => current is TagsActionState,
-        buildWhen: (previous, current) => current is! TagsActionState,
-        listener: (context, state) {},
-        builder: (context, state) {
-          if (state is TagsLoadingState) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (state is TagsSuccessState) {
-            return ListView.separated(
-              itemCount: state.tagsModel.tags!.length,
-              separatorBuilder: (context, index) => const SizedBox(
-                height: 10,
-              ),
-              itemBuilder: (context, index) {
-                var tagsData = state.tagsModel.tags![index];
-                return Card(
-                  color: Colors.white,
-                  child: ListTile(
-                    leading: '${index + 1}'.text.size(16).make(),
-                    title: tagsData.title!.text.size(16).make(),
-                    trailing: SizedBox(
-                      width: 100,
-                      child: Row(
-                        children: [
-                          IconButton(
-                            onPressed: () => AutoRouter.of(context)
-                                .push(const TagsUpdateRoute()),
-                            icon: const Icon(
-                              Icons.edit,
-                              color: Colors.green,
+      body: BlocProvider(
+        create: (context) => tagsBloc,
+        child: BlocConsumer<TagsBloc, TagsState>(
+          listenWhen: (previous, current) => current is TagsActionState,
+          buildWhen: (previous, current) => current is! TagsActionState,
+          listener: (context, state) {},
+          builder: (context, state) {
+            if (state is TagsLoadingState) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is TagsSuccessState) {
+              return ListView.separated(
+                itemCount: state.tagsModel.tags!.length,
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 10,
+                ),
+                itemBuilder: (context, index) {
+                  var tagsData = state.tagsModel.tags![index];
+                  return Card(
+                    color: Colors.white,
+                    child: ListTile(
+                      leading: '${index + 1}'.text.size(16).make(),
+                      title: tagsData.title!.text.size(16).make(),
+                      trailing: SizedBox(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            IconButton(
+                              onPressed: () => AutoRouter.of(context)
+                                  .push(const TagsUpdateRoute()),
+                              icon: const Icon(
+                                Icons.edit,
+                                color: Colors.green,
+                              ),
                             ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.restore_from_trash,
-                              color: Colors.red,
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.restore_from_trash,
+                                color: Colors.red,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
-            );
-          } else if (state is TagsErrorState) {
-            return Center(
-              child: 'Error !!!'.text.make(),
-            );
-          }
-          return const SizedBox();
-        },
+                  );
+                },
+              );
+            } else if (state is TagsErrorState) {
+              return Center(
+                child: 'Error !!!'.text.make(),
+              );
+            }
+            return const SizedBox();
+          },
+        ),
       ),
     );
   }

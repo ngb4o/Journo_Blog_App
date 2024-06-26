@@ -9,6 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i10;
+import 'package:flutter/material.dart' as _i11;
 import 'package:flutter_journo_blog_app/presentation/screens/auth/auth_imports.dart'
     as _i1;
 import 'package:flutter_journo_blog_app/presentation/screens/auth/login/login_imports.dart'
@@ -21,6 +22,8 @@ import 'package:flutter_journo_blog_app/presentation/screens/general/general_imp
     as _i3;
 import 'package:flutter_journo_blog_app/presentation/screens/general/home/home_imports.dart'
     as _i4;
+import 'package:flutter_journo_blog_app/presentation/screens/general/home/home_model.dart'
+    as _i12;
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_imports.dart'
     as _i9;
 import 'package:flutter_journo_blog_app/presentation/screens/onboard/onboard_imports.dart'
@@ -58,9 +61,13 @@ abstract class $AppRouter extends _i10.RootStackRouter {
       );
     },
     HomeDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<HomeDetailsRouteArgs>();
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.HomeDetails(),
+        child: _i4.HomeDetails(
+          key: args.key,
+          post: args.post,
+        ),
       );
     },
     LoginRoute.name: (routeData) {
@@ -160,16 +167,40 @@ class GeneralRoute extends _i10.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.HomeDetails]
-class HomeDetailsRoute extends _i10.PageRouteInfo<void> {
-  const HomeDetailsRoute({List<_i10.PageRouteInfo>? children})
-      : super(
+class HomeDetailsRoute extends _i10.PageRouteInfo<HomeDetailsRouteArgs> {
+  HomeDetailsRoute({
+    _i11.Key? key,
+    required _i12.Post post,
+    List<_i10.PageRouteInfo>? children,
+  }) : super(
           HomeDetailsRoute.name,
+          args: HomeDetailsRouteArgs(
+            key: key,
+            post: post,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'HomeDetailsRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i10.PageInfo<HomeDetailsRouteArgs> page =
+      _i10.PageInfo<HomeDetailsRouteArgs>(name);
+}
+
+class HomeDetailsRouteArgs {
+  const HomeDetailsRouteArgs({
+    this.key,
+    required this.post,
+  });
+
+  final _i11.Key? key;
+
+  final _i12.Post post;
+
+  @override
+  String toString() {
+    return 'HomeDetailsRouteArgs{key: $key, post: $post}';
+  }
 }
 
 /// generated route for

@@ -111,7 +111,7 @@ class _LoginState extends State<Login> {
                                     return null;
                                   },
                                 ),
-                                30.h.heightBox,
+                                25.h.heightBox,
                                 TextFieldLogin(
                                   hintText: 'Password',
                                   hintTextStyle:
@@ -130,7 +130,7 @@ class _LoginState extends State<Login> {
                                     return null;
                                   },
                                 ),
-                                20.h.heightBox,
+                                30.h.heightBox,
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,

@@ -43,16 +43,16 @@ class _GeneralState extends State<General> {
       body: pages.elementAt(visit),
       bottomNavigationBar: BottomBarInspiredInside(
         items: items,
-        backgroundColor: Colors.white,
-        color: MyColors.primaryColor,
-        colorSelected: Colors.white,
+        backgroundColor: MyColors.primaryColor,
+        color: Colors.white,
+        colorSelected: MyColors.primaryColor,
         indexSelected: visit,
         iconSize: 24,
         onTap: (int index) => setState(() {
           visit = index;
         }),
         chipStyle: const ChipStyle(
-            convexBridge: true, background: MyColors.primaryColor),
+            convexBridge: true, background: MyColors.white),
         itemStyle: ItemStyle.circle,
         animated: false,
       ),
