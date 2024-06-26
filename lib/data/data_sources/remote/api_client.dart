@@ -13,12 +13,29 @@ class ApiClient {
     dio = Dio(baseOptions);
   }
 
+  Options options = Options();
+
   //GET REQUEST
-  Future<Response> getRequest({required String path}) async {
+  Future<Response> getRequest(
+      {required String path, bool isTokenRequired = false}) async {
+    if (isTokenRequired == true) {
+      var token = await Utils.getToken();
+
+      options.headers = baseOptions.headers
+        ..addAll(
+          {"Authorization": "Bearer $token"},
+        );
+
+      var response = await dio.get(
+        path,
+        options: options,
+      );
+    }
+
     try {
       debugPrint('========== API REQUEST =========');
       debugPrint('Request url: ${baseOptions.baseUrl + path}');
-      var response = await dio.get(path);
+      var response = await dio.get(path, options: options);
       debugPrint('========== API RESPONSE =========');
       debugPrint('Status code: ${response.statusCode.toString()}');
       return response;
