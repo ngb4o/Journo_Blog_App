@@ -1,9 +1,14 @@
-part of 'categories_imports.dart';
+part of 'categories_update_imports.dart';
 
 @RoutePage()
-class CategoriesUpdate extends StatelessWidget {
+class CategoriesUpdate extends StatefulWidget {
   const CategoriesUpdate({super.key});
 
+  @override
+  State<CategoriesUpdate> createState() => _CategoriesUpdateState();
+}
+
+class _CategoriesUpdateState extends State<CategoriesUpdate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,11 +27,11 @@ class CategoriesUpdate extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             'Title'.text.bold.make(),
-            TextFieldCustom(hintText: 'Reviews',),
+            const TextFieldCustom(hintText: 'Reviews',),
             20.h.heightBox,
             'Slug'.text.bold.make(),
-            TextFieldCustom(hintText: 'Reviews',),
-            Spacer(),
+            const TextFieldCustom(hintText: 'Reviews',),
+            const Spacer(),
             PrimaryButton(
               title: 'Update',
               onPressed: () {},
@@ -34,6 +39,6 @@ class CategoriesUpdate extends StatelessWidget {
           ],
         ),
       ),
-    );
+    );;
   }
 }

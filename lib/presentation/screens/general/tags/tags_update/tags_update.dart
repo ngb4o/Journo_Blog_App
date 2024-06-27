@@ -1,9 +1,14 @@
-part of 'categories_imports.dart';
+part of 'tags_update_imports.dart';
 
 @RoutePage()
-class CategoriesAdd extends StatelessWidget {
-  const CategoriesAdd({super.key});
+class TagsUpdate extends StatefulWidget {
+  const TagsUpdate({super.key});
 
+  @override
+  State<TagsUpdate> createState() => _TagsUpdateState();
+}
+
+class _TagsUpdateState extends State<TagsUpdate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +18,7 @@ class CategoriesAdd extends StatelessWidget {
           color: Colors.white,
         ),
         backgroundColor: MyColors.primaryColor,
-        title: 'Add New Category'.text.white.make(),
+        title: 'Update Tags'.text.white.make(),
         centerTitle: true,
       ),
       body: Padding(
@@ -22,13 +27,17 @@ class CategoriesAdd extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             'Title'.text.bold.make(),
-            TextFieldCustom(),
+            const TextFieldCustom(
+              hintText: 'Entertaiments',
+            ),
             20.h.heightBox,
             'Slug'.text.bold.make(),
-            TextFieldCustom(),
-            Spacer(),
+            const TextFieldCustom(
+              hintText: 'Entertaiments',
+            ),
+            const Spacer(),
             PrimaryButton(
-              title: 'Add',
+              title: 'Update',
               onPressed: () {},
             ),
           ],

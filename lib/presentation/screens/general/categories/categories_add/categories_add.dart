@@ -1,9 +1,14 @@
-part of 'tags_imports.dart';
+part of 'categories_add_imports.dart';
 
 @RoutePage()
-class TagsAdd extends StatelessWidget {
-  const TagsAdd({super.key});
+class CategoriesAdd extends StatefulWidget {
+  const CategoriesAdd({super.key});
 
+  @override
+  State<CategoriesAdd> createState() => _CategoriesAddState();
+}
+
+class _CategoriesAddState extends State<CategoriesAdd> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +18,7 @@ class TagsAdd extends StatelessWidget {
           color: Colors.white,
         ),
         backgroundColor: MyColors.primaryColor,
-        title: 'Add New Tags'.text.white.make(),
+        title: 'Add New Category'.text.white.make(),
         centerTitle: true,
       ),
       body: Padding(

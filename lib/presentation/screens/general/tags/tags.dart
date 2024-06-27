@@ -33,7 +33,7 @@ class _TagsState extends State<Tags> {
         backgroundColor: MyColors.primaryColor,
         actions: [
           GestureDetector(
-            onTap: () => AutoRouter.of(context).push(const TagsAddRoute()),
+            onTap: () {},
             child: const Icon(
               FeatherIcons.plus,
               color: Colors.white,
@@ -70,8 +70,7 @@ class _TagsState extends State<Tags> {
                         child: Row(
                           children: [
                             IconButton(
-                              onPressed: () => AutoRouter.of(context)
-                                  .push(const TagsUpdateRoute()),
+                              onPressed: () {},
                               icon: const Icon(
                                 Icons.edit,
                                 color: Colors.green,

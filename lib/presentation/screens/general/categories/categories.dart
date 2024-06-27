@@ -19,7 +19,7 @@ class _CategoriesState extends State<Categories> {
         backgroundColor: MyColors.primaryColor,
         actions: [
           GestureDetector(
-            onTap: () => AutoRouter.of(context).push(const CategoriesAddRoute()),
+            onTap: () {},
             child: const Icon(
               FeatherIcons.plus,
               color: Colors.white,
@@ -43,12 +43,18 @@ class _CategoriesState extends State<Categories> {
                 child: Row(
                   children: [
                     IconButton(
-                      onPressed: () => AutoRouter.of(context).push(const CategoriesUpdateRoute()),
-                      icon: const Icon(Icons.edit, color: Colors.green,),
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Colors.green,
+                      ),
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.restore_from_trash, color: Colors.red,),
+                      icon: const Icon(
+                        Icons.restore_from_trash,
+                        color: Colors.red,
+                      ),
                     ),
                   ],
                 ),
