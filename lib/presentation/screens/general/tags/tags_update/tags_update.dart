@@ -9,6 +9,9 @@ class TagsUpdate extends StatefulWidget {
 }
 
 class _TagsUpdateState extends State<TagsUpdate> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController slugController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +30,14 @@ class _TagsUpdateState extends State<TagsUpdate> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             'Title'.text.bold.make(),
-            const TextFieldCustom(
+            TextFieldCustom(
+              controller:titleController,
               hintText: 'Entertaiments',
             ),
             20.h.heightBox,
             'Slug'.text.bold.make(),
-            const TextFieldCustom(
+            TextFieldCustom(
+              controller: slugController,
               hintText: 'Entertaiments',
             ),
             const Spacer(),

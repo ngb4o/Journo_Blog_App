@@ -8,6 +8,9 @@ class AddPosts extends StatefulWidget {
 }
 
 class _AddPostsState extends State<AddPosts> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController slugController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,13 +51,15 @@ class _AddPostsState extends State<AddPosts> {
                 ],
               ),
               25.h.heightBox,
-              const TextFieldCustom(
+              TextFieldCustom(
+                controller: titleController,
                 hintText: 'Title',
                 fillColor: Colors.white,
                 borderColor: MyColors.primaryColor,
               ),
               25.h.heightBox,
-              const TextFieldCustom(
+              TextFieldCustom(
+                controller: slugController,
                 hintText: 'Slug',
                 fillColor: Colors.white,
                 borderColor: MyColors.primaryColor,
@@ -90,7 +95,7 @@ class _AddPostsState extends State<AddPosts> {
                 ),
                 child: Padding(
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

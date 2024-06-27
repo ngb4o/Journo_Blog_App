@@ -9,6 +9,8 @@ class CategoriesAdd extends StatefulWidget {
 }
 
 class _CategoriesAddState extends State<CategoriesAdd> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController slugController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +29,10 @@ class _CategoriesAddState extends State<CategoriesAdd> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             'Title'.text.bold.make(),
-            const TextFieldCustom(),
+             TextFieldCustom(controller: titleController,),
             20.h.heightBox,
             'Slug'.text.bold.make(),
-            const TextFieldCustom(),
+             TextFieldCustom(controller: slugController,),
             const Spacer(),
             PrimaryButton(
               title: 'Add',

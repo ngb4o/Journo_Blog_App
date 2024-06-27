@@ -9,6 +9,9 @@ class CategoriesUpdate extends StatefulWidget {
 }
 
 class _CategoriesUpdateState extends State<CategoriesUpdate> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController slugController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +30,16 @@ class _CategoriesUpdateState extends State<CategoriesUpdate> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             'Title'.text.bold.make(),
-            const TextFieldCustom(hintText: 'Reviews',),
+            TextFieldCustom(
+              controller: titleController,
+              hintText: 'Reviews',
+            ),
             20.h.heightBox,
             'Slug'.text.bold.make(),
-            const TextFieldCustom(hintText: 'Reviews',),
+            TextFieldCustom(
+              controller: slugController,
+              hintText: 'Reviews',
+            ),
             const Spacer(),
             PrimaryButton(
               title: 'Update',
@@ -39,6 +48,7 @@ class _CategoriesUpdateState extends State<CategoriesUpdate> {
           ],
         ),
       ),
-    );;
+    );
+    ;
   }
 }

@@ -4,12 +4,14 @@ class TextFieldCustom extends StatelessWidget {
   final String hintText;
   final Color fillColor;
   final Color borderColor;
+  final TextEditingController controller;
 
   const TextFieldCustom({
     super.key,
     this.hintText = '',
     this.fillColor = Colors.grey,
     this.borderColor = Colors.black,
+    required this.controller,
   });
 
   @override
@@ -20,6 +22,7 @@ class TextFieldCustom extends StatelessWidget {
       borderRadius: 10,
       fillColor: fillColor.withOpacity(0.2),
       hint: hintText,
+      controller: controller,
     );
   }
 }
