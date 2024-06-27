@@ -5,4 +5,5 @@ sealed class TagsEvent {}
 
 class TagsInitialFetchEvent extends TagsEvent {}
 
+class TagsAddButtonNavigatorEvent extends TagsEvent {}
 

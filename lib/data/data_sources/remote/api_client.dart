@@ -54,12 +54,19 @@ class ApiClient {
   }
 
   //POST REQUEST
-  Future<Response> postRequest({required String path, dynamic body}) async {
-    var token = await Utils.getToken();
+  Future<Response> postRequest({
+    required String path,
+    dynamic body,
+    bool isRequiredToken = false,
+  }) async {
+    if (isRequiredToken == true) {
+      var token = await Utils.getToken();
 
-    final options = Options(
-      headers: {"Authorization": "Bearer $token"},
-    );
+      options.headers = baseOptions.headers
+        ..addAll(
+          {"Authorization": "Bearer $token"},
+        );
+    }
     try {
       debugPrint('========== API REQUEST =========');
       debugPrint('Request url: ${baseOptions.baseUrl + path}');

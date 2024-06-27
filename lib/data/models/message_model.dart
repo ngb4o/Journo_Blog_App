@@ -4,23 +4,26 @@
 
 import 'dart:convert';
 
-MessageModel messageModelFromJson(String str) =>
-    MessageModel.fromJson(json.decode(str));
+MessageModel messageModelFromJson(String str) => MessageModel.fromJson(json.decode(str));
 
 String messageModelToJson(MessageModel data) => json.encode(data.toJson());
 
 class MessageModel {
+  int? status;
   String? message;
 
   MessageModel({
+    this.status,
     this.message,
   });
 
   factory MessageModel.fromJson(Map<String, dynamic> json) => MessageModel(
-        message: json["message"],
-      );
+    status: json["status"],
+    message: json["message"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "message": message,
-      };
+    "status": status,
+    "message": message,
+  };
 }

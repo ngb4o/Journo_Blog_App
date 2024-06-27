@@ -2,6 +2,7 @@ import 'package:velocity_x/velocity_x.dart';
 import '../../presentation/screens/general/tags/tags_model.dart';
 import '../data_sources/remote/api_client.dart';
 import '../data_sources/remote/api_endpoint_urls.dart';
+import '../models/message_model.dart';
 
 class TagsRepo extends ApiClient {
   TagsRepo();
@@ -20,5 +21,24 @@ class TagsRepo extends ApiClient {
       TagsModel();
     }
     return TagsModel();
+  }
+
+  Future<MessageModel> addTags(String title, String slug) async {
+    Map body = {
+      "title": title,
+      "slug": slug,
+    };
+    try {
+      final response = await postRequest(
+          path: ApiEndpointUrls.addTags, body: body, isRequiredToken: true);
+      if (response.statusCode == 200) {
+        final responseData = MessageModel.fromJson(response.data);
+        return responseData;
+      } else {
+        throw Exception('Error');
+      }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
   }
 }

@@ -16,7 +16,7 @@ class PrimaryButton extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.red.withOpacity(0.8),
+              Colors.red,
               MyColors.primaryColor,
             ],
             begin: Alignment.bottomLeft,

@@ -1,7 +1,6 @@
 import 'package:flutter_journo_blog_app/data/data_sources/remote/api_endpoint_urls.dart';
 import 'package:flutter_journo_blog_app/data/models/message_model.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/auth/login/login_model.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 import '../data_sources/remote/api_client.dart';
 
@@ -34,6 +33,7 @@ class AuthRepo extends ApiClient {
     try {
       final response = await postRequest(
         path: ApiEndpointUrls.logout,
+        isRequiredToken: true,
       );
 
       if (response.statusCode == 200) {

@@ -16,3 +16,6 @@ class TagsSuccessState extends TagsState {
 }
 
 class TagsErrorState extends TagsState {}
+
+class TagsNavigatedToTagsAddActionState extends TagsActionState {}
+
