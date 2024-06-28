@@ -15,7 +15,22 @@ class TagsSuccessState extends TagsState {
   TagsSuccessState({required this.tagsModel});
 }
 
-class TagsErrorState extends TagsState {}
+class TagsErrorState extends TagsState {
+  final String message;
 
-class TagsNavigatedToTagsAddActionState extends TagsActionState {}
+  TagsErrorState({required this.message});
+}
 
+class TagsRemovingState extends TagsActionState {}
+
+class TagsRemovedSuccessState extends TagsActionState {
+  final MessageModel messageModel;
+
+  TagsRemovedSuccessState({required this.messageModel});
+}
+
+class TagsRemoveErrorState extends TagsActionState {
+  final String message;
+
+  TagsRemoveErrorState({required this.message});
+}

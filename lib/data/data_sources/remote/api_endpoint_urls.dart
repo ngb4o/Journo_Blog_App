@@ -6,6 +6,7 @@ class ApiEndpointUrls {
   static const String categories = 'categories';
   static const String addTags = 'add-tags';
   static const String userPosts = 'user-posts';
+  static const String deleteTags = 'delete-tags';
 
   //Auth Endpoint Urls
   static const String login = 'login';

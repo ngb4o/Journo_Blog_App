@@ -41,4 +41,19 @@ class TagsRepo extends ApiClient {
       throw Exception(e.toString());
     }
   }
+
+  Future<MessageModel> deleteTags(int id) async {
+    try {
+      final response = await postRequest(
+          path: '${ApiEndpointUrls.deleteTags}/$id', isRequiredToken: true);
+      if (response.statusCode == 200) {
+        final responseData = MessageModel.fromJson(response.data);
+        return responseData;
+      } else {
+        throw Exception('Failed');
+      }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
 }

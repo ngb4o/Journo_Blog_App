@@ -10,15 +10,20 @@ class TagsAdd extends StatefulWidget {
 
 class _TagsAddState extends State<TagsAdd> {
   final TextEditingController titleController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   _addTags() {
-    context.read<TagsAddBloc>().add(
-          TagsAddClickButtonAddEvent(
-            title: titleController.text.trim(),
-            slug:
-                titleController.text.toLowerCase().replaceAll(' ', '-').trim(),
-          ),
-        );
+    if (formKey.currentState!.validate()) {
+      context.read<TagsAddBloc>().add(
+            TagsAddClickButtonAddEvent(
+              title: titleController.text.trim(),
+              slug: titleController.text
+                  .toLowerCase()
+                  .replaceAll(' ', '-')
+                  .trim(),
+            ),
+          );
+    }
   }
 
   @override
@@ -50,38 +55,53 @@ class _TagsAddState extends State<TagsAdd> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('${state.messageModel.message}')),
             );
-          }else if (state is TagsAddNavigatedToTags) {
+          } else if (state is TagsAddNavigatedToTags) {
             AutoRouter.of(context).pop<TagsModel>(state.tagsModel);
           }
         },
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                'Title'.text.bold.make(),
-                TextFieldCustom(
-                  controller: titleController,
-                ),
-                20.h.heightBox,
-                'Slug'.text.bold.make(),
-                TextFieldCustom(
-                  controller: titleController,
-                ),
-                const Spacer(),
-                if (state is TagsAddLoadingState)
-                  Center(
-                    child: const CircularProgressIndicator(
-                      color: MyColors.primaryColor,
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  'Title'.text.bold.make(),
+                  TextFieldCustom(
+                    controller: titleController,
+                    validator: (titleController) {
+                      if(titleController!.isEmpty) {
+                        return 'Title is empty !';
+                      }
+                      return null;
+                    },
+                  ),
+                  20.h.heightBox,
+                  'Slug'.text.bold.make(),
+                  TextFieldCustom(
+                    controller: titleController,
+                    validator: (titleController) {
+                      if(titleController!.isEmpty) {
+                        return 'Slug is empty !';
+                      }
+                      return null;
+                    },
+                  ),
+                  const Spacer(),
+                  if (state is TagsAddLoadingState)
+                    Center(
+                      child: const CircularProgressIndicator(
+                        color: MyColors.primaryColor,
+                      ).pOnly(bottom: 20),
+                    )
+                  else
+                    PrimaryButton(
+                      title: 'Add',
+                      onPressed: _addTags,
                     ).pOnly(bottom: 20),
-                  )
-                else
-                  PrimaryButton(
-                    title: 'Add',
-                    onPressed: _addTags,
-                  ).pOnly(bottom: 20),
-              ],
+                ],
+              ),
             ),
           );
         },

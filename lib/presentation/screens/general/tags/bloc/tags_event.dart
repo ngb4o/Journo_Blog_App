@@ -12,3 +12,9 @@ class TagsUpdateEvent extends TagsEvent {
 
   TagsUpdateEvent(this.updatedTags);
 }
+
+class TagsClickButtonRemoveTagsEvent extends TagsEvent {
+  final int id;
+
+  TagsClickButtonRemoveTagsEvent({required this.id});
+}

@@ -5,6 +5,7 @@ class TextFieldCustom extends StatelessWidget {
   final Color fillColor;
   final Color borderColor;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
 
   const TextFieldCustom({
     super.key,
@@ -12,6 +13,7 @@ class TextFieldCustom extends StatelessWidget {
     this.fillColor = Colors.grey,
     this.borderColor = Colors.black,
     required this.controller,
+    this.validator,
   });
 
   @override
@@ -23,6 +25,7 @@ class TextFieldCustom extends StatelessWidget {
       fillColor: fillColor.withOpacity(0.2),
       hint: hintText,
       controller: controller,
+      validator: validator,
     );
   }
 }

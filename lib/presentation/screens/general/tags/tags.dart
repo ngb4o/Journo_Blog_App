@@ -11,23 +11,34 @@ class _TagsState extends State<Tags> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<TagsBloc>(context).add(TagsInitialFetchEvent());
+    context.read<TagsBloc>().add(TagsInitialFetchEvent());
   }
 
   Future<void> _gotoTagsAdd(BuildContext context) async {
     final updateTags =
         await AutoRouter.of(context).push<TagsModel>(const TagsAddRoute());
     if (updateTags != null) {
-      BlocProvider.of<TagsBloc>(context).add(TagsUpdateEvent(updateTags));
+      context.read<TagsBloc>().add(TagsUpdateEvent(updateTags));
     }
+  }
+
+  _deleteTags(int id) async {
+    context.read<TagsBloc>().add(TagsClickButtonRemoveTagsEvent(id: id));
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<TagsBloc, TagsState>(
+      buildWhen: (previous, current) => current is! TagsActionState,
+      listenWhen: (previous, current) => current is TagsActionState,
       listener: (context, state) {
-        if (state is TagsNavigatedToTagsAddActionState) {
-          _gotoTagsAdd(context);
+        if (state is TagsRemovedSuccessState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('${state.messageModel.message}')),
+          );
+        } else if (state is TagsErrorState) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('$state.message')));
         }
       },
       builder: (context, state) {
@@ -47,8 +58,7 @@ class _TagsState extends State<Tags> {
               actions: [
                 GestureDetector(
                   onTap: () {
-                    BlocProvider.of<TagsBloc>(context)
-                        .add(TagsAddButtonNavigatorEvent());
+                    _gotoTagsAdd(context);
                   },
                   child: const Icon(
                     FeatherIcons.plus,
@@ -81,7 +91,9 @@ class _TagsState extends State<Tags> {
                             ),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              _deleteTags(tagsData.id!);
+                            },
                             icon: const Icon(
                               Icons.restore_from_trash,
                               color: Colors.red,
