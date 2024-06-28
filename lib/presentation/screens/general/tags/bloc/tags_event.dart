@@ -7,3 +7,8 @@ class TagsInitialFetchEvent extends TagsEvent {}
 
 class TagsAddButtonNavigatorEvent extends TagsEvent {}
 
+class TagsUpdateEvent extends TagsEvent {
+  final TagsModel updatedTags;
+
+  TagsUpdateEvent(this.updatedTags);
+}

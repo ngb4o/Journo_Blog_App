@@ -1,6 +1,6 @@
 part of 'tags_add_imports.dart';
 
-@RoutePage()
+@RoutePage<TagsModel>()
 class TagsAdd extends StatefulWidget {
   const TagsAdd({super.key});
 
@@ -10,13 +10,13 @@ class TagsAdd extends StatefulWidget {
 
 class _TagsAddState extends State<TagsAdd> {
   final TextEditingController titleController = TextEditingController();
-  final TextEditingController slugController = TextEditingController();
 
   _addTags() {
     context.read<TagsAddBloc>().add(
           TagsAddClickButtonAddEvent(
             title: titleController.text.trim(),
-            slug: slugController.text.trim(),
+            slug:
+                titleController.text.toLowerCase().replaceAll(' ', '-').trim(),
           ),
         );
   }
@@ -24,7 +24,6 @@ class _TagsAddState extends State<TagsAdd> {
   @override
   void dispose() {
     titleController.dispose();
-    slugController.dispose();
     super.dispose();
   }
 
@@ -32,9 +31,14 @@ class _TagsAddState extends State<TagsAdd> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
         ),
         backgroundColor: MyColors.primaryColor,
         title: 'Add New Tags'.text.white.make(),
@@ -44,10 +48,10 @@ class _TagsAddState extends State<TagsAdd> {
         listener: (context, state) {
           if (state is TagsAddSuccessState) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                  content:
-                  Text('${state.messageModel.message}')),
+              SnackBar(content: Text('${state.messageModel.message}')),
             );
+          }else if (state is TagsAddNavigatedToTags) {
+            AutoRouter.of(context).pop<TagsModel>(state.tagsModel);
           }
         },
         builder: (context, state) {
@@ -57,20 +61,26 @@ class _TagsAddState extends State<TagsAdd> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 'Title'.text.bold.make(),
-                 TextFieldCustom(controller: titleController,),
+                TextFieldCustom(
+                  controller: titleController,
+                ),
                 20.h.heightBox,
                 'Slug'.text.bold.make(),
-                 TextFieldCustom(controller: slugController,),
+                TextFieldCustom(
+                  controller: titleController,
+                ),
                 const Spacer(),
                 if (state is TagsAddLoadingState)
-                  const Center(
-                    child: CircularProgressIndicator(color: MyColors.primaryColor,),
+                  Center(
+                    child: const CircularProgressIndicator(
+                      color: MyColors.primaryColor,
+                    ).pOnly(bottom: 20),
                   )
                 else
                   PrimaryButton(
                     title: 'Add',
                     onPressed: _addTags,
-                  ),
+                  ).pOnly(bottom: 20),
               ],
             ),
           );

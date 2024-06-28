@@ -16,6 +16,7 @@ class TagsBloc extends Bloc<TagsEvent, TagsState> {
   TagsBloc(this.tagsRepo) : super(TagsInitial()) {
     on<TagsInitialFetchEvent>(tagsInitialFetchEvent);
     on<TagsAddButtonNavigatorEvent>(tagsAddButtonNavigatorEvent);
+    on<TagsUpdateEvent>(tagsUpdateEvent);
   }
 
   FutureOr<void> tagsInitialFetchEvent(
@@ -30,5 +31,10 @@ class TagsBloc extends Bloc<TagsEvent, TagsState> {
   FutureOr<void> tagsAddButtonNavigatorEvent(
       TagsAddButtonNavigatorEvent event, Emitter<TagsState> emit) async {
     emit(TagsNavigatedToTagsAddActionState());
+  }
+
+  FutureOr<void> tagsUpdateEvent(
+      TagsUpdateEvent event, Emitter<TagsState> emit) async {
+    emit(TagsSuccessState(tagsModel: event.updatedTags));
   }
 }

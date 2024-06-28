@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i12;
-import 'package:flutter/material.dart' as _i13;
+import 'package:flutter/material.dart' as _i14;
 import 'package:flutter_journo_blog_app/presentation/screens/auth/auth_imports.dart'
     as _i1;
 import 'package:flutter_journo_blog_app/presentation/screens/auth/login/login_imports.dart'
@@ -25,9 +25,11 @@ import 'package:flutter_journo_blog_app/presentation/screens/general/general_imp
 import 'package:flutter_journo_blog_app/presentation/screens/general/home/home_imports.dart'
     as _i5;
 import 'package:flutter_journo_blog_app/presentation/screens/general/home/home_model.dart'
-    as _i14;
+    as _i15;
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_add/tags_add_imports.dart'
     as _i10;
+import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_model.dart'
+    as _i13;
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_update/tags_update_imports.dart'
     as _i11;
 import 'package:flutter_journo_blog_app/presentation/screens/onboard/onboard_imports.dart'
@@ -99,7 +101,7 @@ abstract class $AppRouter extends _i12.RootStackRouter {
       );
     },
     TagsAddRoute.name: (routeData) {
-      return _i12.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<_i13.TagsModel>(
         routeData: routeData,
         child: const _i10.TagsAdd(),
       );
@@ -173,8 +175,8 @@ class GeneralRoute extends _i12.PageRouteInfo<void> {
 /// [_i5.HomeDetails]
 class HomeDetailsRoute extends _i12.PageRouteInfo<HomeDetailsRouteArgs> {
   HomeDetailsRoute({
-    _i13.Key? key,
-    required _i14.Post post,
+    _i14.Key? key,
+    required _i15.Post post,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           HomeDetailsRoute.name,
@@ -197,9 +199,9 @@ class HomeDetailsRouteArgs {
     required this.post,
   });
 
-  final _i13.Key? key;
+  final _i14.Key? key;
 
-  final _i14.Post post;
+  final _i15.Post post;
 
   @override
   String toString() {

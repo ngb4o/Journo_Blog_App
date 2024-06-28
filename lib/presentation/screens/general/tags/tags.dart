@@ -8,11 +8,18 @@ class Tags extends StatefulWidget {
 }
 
 class _TagsState extends State<Tags> {
-
   @override
   void initState() {
-    context.read<TagsBloc>().add(TagsInitialFetchEvent());
     super.initState();
+    BlocProvider.of<TagsBloc>(context).add(TagsInitialFetchEvent());
+  }
+
+  Future<void> _gotoTagsAdd(BuildContext context) async {
+    final updateTags =
+        await AutoRouter.of(context).push<TagsModel>(const TagsAddRoute());
+    if (updateTags != null) {
+      BlocProvider.of<TagsBloc>(context).add(TagsUpdateEvent(updateTags));
+    }
   }
 
   @override
@@ -20,7 +27,7 @@ class _TagsState extends State<Tags> {
     return BlocConsumer<TagsBloc, TagsState>(
       listener: (context, state) {
         if (state is TagsNavigatedToTagsAddActionState) {
-          AutoRouter.of(context).push(const TagsAddRoute());
+          _gotoTagsAdd(context);
         }
       },
       builder: (context, state) {
@@ -36,12 +43,12 @@ class _TagsState extends State<Tags> {
               title: 'Tags'.text.color(Colors.white).make(),
               centerTitle: true,
               automaticallyImplyLeading: false,
-              //remove back
               backgroundColor: MyColors.primaryColor,
               actions: [
                 GestureDetector(
                   onTap: () {
-                    context.read<TagsBloc>().add(TagsAddButtonNavigatorEvent());
+                    BlocProvider.of<TagsBloc>(context)
+                        .add(TagsAddButtonNavigatorEvent());
                   },
                   child: const Icon(
                     FeatherIcons.plus,

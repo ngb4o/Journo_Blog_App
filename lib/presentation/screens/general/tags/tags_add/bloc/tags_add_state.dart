@@ -5,6 +5,8 @@ sealed class TagsAddState {}
 
 final class TagsAddInitial extends TagsAddState {}
 
+abstract class TagsAddActionState extends TagsAddState {}
+
 class TagsAddLoadingState extends TagsAddState {}
 
 class TagsAddSuccessState extends TagsAddState {
@@ -18,3 +20,12 @@ class TagsAddFailedState extends TagsAddState {
 
   TagsAddFailedState({required this.message});
 }
+
+class TagsAddNavigatedToTags extends TagsAddActionState {
+  final TagsModel tagsModel;
+
+  TagsAddNavigatedToTags({required this.tagsModel});
+
+}
+
+
