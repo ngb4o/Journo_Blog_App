@@ -107,9 +107,13 @@ abstract class $AppRouter extends _i12.RootStackRouter {
       );
     },
     TagsUpdateRoute.name: (routeData) {
-      return _i12.AutoRoutePage<dynamic>(
+      final args = routeData.argsAs<TagsUpdateRouteArgs>();
+      return _i12.AutoRoutePage<_i13.TagsModel>(
         routeData: routeData,
-        child: const _i11.TagsUpdate(),
+        child: _i11.TagsUpdate(
+          key: args.key,
+          tag: args.tag,
+        ),
       );
     },
   };
@@ -281,14 +285,38 @@ class TagsAddRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i11.TagsUpdate]
-class TagsUpdateRoute extends _i12.PageRouteInfo<void> {
-  const TagsUpdateRoute({List<_i12.PageRouteInfo>? children})
-      : super(
+class TagsUpdateRoute extends _i12.PageRouteInfo<TagsUpdateRouteArgs> {
+  TagsUpdateRoute({
+    _i14.Key? key,
+    required _i13.Tag tag,
+    List<_i12.PageRouteInfo>? children,
+  }) : super(
           TagsUpdateRoute.name,
+          args: TagsUpdateRouteArgs(
+            key: key,
+            tag: tag,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'TagsUpdateRoute';
 
-  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+  static const _i12.PageInfo<TagsUpdateRouteArgs> page =
+      _i12.PageInfo<TagsUpdateRouteArgs>(name);
+}
+
+class TagsUpdateRouteArgs {
+  const TagsUpdateRouteArgs({
+    this.key,
+    required this.tag,
+  });
+
+  final _i14.Key? key;
+
+  final _i13.Tag tag;
+
+  @override
+  String toString() {
+    return 'TagsUpdateRouteArgs{key: $key, tag: $tag}';
+  }
 }

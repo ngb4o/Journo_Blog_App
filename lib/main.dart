@@ -9,6 +9,8 @@ import 'package:flutter_journo_blog_app/presentation/screens/general/home/bloc/h
 import 'package:flutter_journo_blog_app/presentation/screens/general/profile/bloc/profile_bloc.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/bloc/tags_bloc.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_add/bloc/tags_add_bloc.dart';
+import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_model.dart';
+import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_update/bloc/tags_update_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/themes/app_themes.dart';
 
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
     final ProfileBloc profileBloc = ProfileBloc(AuthRepo(), PostsRepo());
     final HomeBloc homeBloc = HomeBloc(PostsRepo());
     final TagsAddBloc tagsAddBloc = TagsAddBloc(TagsRepo());
+    final TagsUpdateBloc tagsUpdateBloc = TagsUpdateBloc(TagsRepo());
 
     return ScreenUtilInit(
       designSize: const Size(390, 844),
@@ -50,6 +53,9 @@ class MyApp extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => tagsAddBloc,
+            ),
+            BlocProvider(
+              create: (context) => tagsUpdateBloc,
             ),
           ],
           child: MaterialApp.router(

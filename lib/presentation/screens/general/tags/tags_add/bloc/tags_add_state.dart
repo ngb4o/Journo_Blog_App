@@ -9,13 +9,13 @@ abstract class TagsAddActionState extends TagsAddState {}
 
 class TagsAddLoadingState extends TagsAddState {}
 
-class TagsAddSuccessState extends TagsAddState {
+class TagsAddSuccessState extends TagsAddActionState {
   final MessageModel messageModel;
 
   TagsAddSuccessState({required this.messageModel});
 }
 
-class TagsAddFailedState extends TagsAddState {
+class TagsAddFailedState extends TagsAddActionState {
   final String message;
 
   TagsAddFailedState({required this.message});

@@ -34,3 +34,11 @@ class TagsRemoveErrorState extends TagsActionState {
 
   TagsRemoveErrorState({required this.message});
 }
+
+class TagsNavigatedToTagsAddState extends TagsActionState {}
+
+class TagsNavigatedToTagsUpdateState extends TagsActionState {
+  final Tag tag;
+
+  TagsNavigatedToTagsUpdateState({required this.tag});
+}

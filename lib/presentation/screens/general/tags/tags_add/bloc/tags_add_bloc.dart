@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_journo_blog_app/data/models/message_model.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_model.dart';

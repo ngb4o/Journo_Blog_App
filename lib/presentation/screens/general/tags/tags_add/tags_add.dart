@@ -50,6 +50,8 @@ class _TagsAddState extends State<TagsAdd> {
         centerTitle: true,
       ),
       body: BlocConsumer<TagsAddBloc, TagsAddState>(
+        buildWhen: (previous, current) => current is! TagsAddActionState,
+        listenWhen: (previous, current) => current is TagsAddActionState,
         listener: (context, state) {
           if (state is TagsAddSuccessState) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -67,7 +69,7 @@ class _TagsAddState extends State<TagsAdd> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  'Title'.text.bold.make(),
+                  'Title'.text.bold.color(MyColors.primaryColor).make(),
                   TextFieldCustom(
                     controller: titleController,
                     validator: (titleController) {
@@ -76,9 +78,10 @@ class _TagsAddState extends State<TagsAdd> {
                       }
                       return null;
                     },
+                    borderColor: MyColors.primaryColor,
                   ),
                   20.h.heightBox,
-                  'Slug'.text.bold.make(),
+                  'Slug'.text.bold.color(MyColors.primaryColor).make(),
                   TextFieldCustom(
                     controller: titleController,
                     validator: (titleController) {
@@ -87,6 +90,7 @@ class _TagsAddState extends State<TagsAdd> {
                       }
                       return null;
                     },
+                    borderColor: MyColors.primaryColor,
                   ),
                   const Spacer(),
                   if (state is TagsAddLoadingState)
