@@ -1,51 +1,38 @@
-import 'package:velocity_x/velocity_x.dart';
-import '../../presentation/screens/general/tags/tags_model.dart';
-import '../data_sources/remote/api_client.dart';
-import '../data_sources/remote/api_endpoint_urls.dart';
+import 'package:flutter_journo_blog_app/data/data_sources/remote/api_client.dart';
+import 'package:flutter_journo_blog_app/data/data_sources/remote/api_endpoint_urls.dart';
+
+import '../../presentation/screens/general/categories/categories_model.dart';
 import '../models/message_model.dart';
 
-class TagsRepo extends ApiClient {
-  TagsRepo();
+class CategoriesRepo extends ApiClient {
+  CategoriesRepo();
 
-  Future<TagsModel> getAllTags() async {
+  Future<CategoriesModel> getAllCategories() async {
     try {
-      final response = await getRequest(path: ApiEndpointUrls.tags);
+      final response = await getRequest(path: ApiEndpointUrls.categories);
       if (response.statusCode == 200) {
-        final responseData = TagsModel.fromJson(response.data);
-        return responseData;
+        final responseDate = CategoriesModel.fromJson(response.data);
+        return responseDate;
       } else {
-        TagsModel();
-      }
-    } on Exception catch (e) {
-      Vx.log(e);
-      TagsModel();
-    }
-    return TagsModel();
-  }
-
-  Future<MessageModel> addTags(String title, String slug) async {
-    Map body = {
-      "title": title,
-      "slug": slug,
-    };
-    try {
-      final response = await postRequest(
-          path: ApiEndpointUrls.addTags, body: body, isRequiredToken: true);
-      if (response.statusCode == 200) {
-        final responseData = MessageModel.fromJson(response.data);
-        return responseData;
-      } else {
-        throw Exception('Error');
+        throw Exception('Failed');
       }
     } catch (e) {
       throw Exception(e.toString());
     }
   }
 
-  Future<MessageModel> deleteTags(int id) async {
+  Future<MessageModel> addCategories(String title, String slug) async {
+    Map body = {
+      "title": title,
+      "slug": slug,
+    };
+
     try {
-      final response = await postRequest(
-          path: '${ApiEndpointUrls.deleteTags}/$id', isRequiredToken: true);
+      var response = await postRequest(
+        path: ApiEndpointUrls.addCategories,
+        body: body,
+        isRequiredToken: true,
+      );
       if (response.statusCode == 200) {
         final responseData = MessageModel.fromJson(response.data);
         return responseData;
@@ -57,7 +44,25 @@ class TagsRepo extends ApiClient {
     }
   }
 
-  Future<MessageModel> updateTags(int id, String title, String slug) async {
+  Future<MessageModel> removeCategories(int id) async {
+    try {
+      final response = await postRequest(
+        path: '${ApiEndpointUrls.deleteCategories}/$id',
+        isRequiredToken: true,
+      );
+      if (response.statusCode == 200) {
+        final responseData = MessageModel.fromJson(response.data);
+        return responseData;
+      } else {
+        throw Exception('Failed');
+      }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
+  Future<MessageModel> updateCategories(
+      int id, String title, String slug) async {
     Map body = {
       "id": id,
       "title": title,
@@ -65,7 +70,7 @@ class TagsRepo extends ApiClient {
     };
     try {
       final response = await postRequest(
-        path: ApiEndpointUrls.updateTags,
+        path: ApiEndpointUrls.updateCategories,
         body: body,
         isRequiredToken: true,
       );

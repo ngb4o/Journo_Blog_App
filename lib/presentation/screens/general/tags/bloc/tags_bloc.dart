@@ -18,8 +18,8 @@ class TagsBloc extends Bloc<TagsEvent, TagsState> {
     on<TagsInitialFetchEvent>(tagsInitialFetchEvent);
     on<TagsUpdateEvent>(tagsUpdateEvent);
     on<TagsClickButtonRemoveTagsEvent>(tagsClickButtonRemoveTagsEvent);
-    on<TagsClickButtonAddEvent>(tagsClickButtonAddEvent);
-    on<TagsClickButtonUpdateEvent>(tagsClickButtonUpdateEvent);
+    on<TagsClickButtonNavigatedToTagsAddEvent>(tagsClickButtonAddEvent);
+    on<TagsClickButtonNavigatedToTagsUpdateEvent>(tagsClickButtonUpdateEvent);
   }
 
   FutureOr<void> tagsInitialFetchEvent(
@@ -58,12 +58,12 @@ class TagsBloc extends Bloc<TagsEvent, TagsState> {
   }
 
   FutureOr<void> tagsClickButtonAddEvent(
-      TagsClickButtonAddEvent event, Emitter<TagsState> emit) {
+      TagsClickButtonNavigatedToTagsAddEvent event, Emitter<TagsState> emit) {
     emit(TagsNavigatedToTagsAddState());
   }
 
   FutureOr<void> tagsClickButtonUpdateEvent(
-      TagsClickButtonUpdateEvent event, Emitter<TagsState> emit) {
+      TagsClickButtonNavigatedToTagsUpdateEvent event, Emitter<TagsState> emit) {
     emit(TagsNavigatedToTagsUpdateState(tag: event.tag));
   }
 }

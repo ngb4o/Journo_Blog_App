@@ -55,11 +55,7 @@ class _TagsState extends State<Tags> {
       },
       builder: (context, state) {
         if (state is TagsLoadingState) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: MyColors.primaryColor,
-            ),
-          );
+          return LoadingSpinkit.loadingPage;
         } else if (state is TagsSuccessState) {
           return Scaffold(
             appBar: AppBar(
@@ -70,7 +66,7 @@ class _TagsState extends State<Tags> {
               actions: [
                 GestureDetector(
                   onTap: () {
-                    context.read<TagsBloc>().add(TagsClickButtonAddEvent());
+                    context.read<TagsBloc>().add(TagsClickButtonNavigatedToTagsAddEvent());
                   },
                   child: const Icon(
                     FeatherIcons.plus,
@@ -102,8 +98,7 @@ class _TagsState extends State<Tags> {
                             IconButton(
                               onPressed: () {
                                 context.read<TagsBloc>().add(
-                                    TagsClickButtonUpdateEvent(tag: tagsData));
-                                print(tagsData.id);
+                                    TagsClickButtonNavigatedToTagsUpdateEvent(tag: tagsData));
                               },
                               icon: const Icon(
                                 Icons.edit,

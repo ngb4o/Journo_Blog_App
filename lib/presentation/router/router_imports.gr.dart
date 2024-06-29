@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i12;
-import 'package:flutter/material.dart' as _i14;
+import 'package:flutter/material.dart' as _i15;
 import 'package:flutter_journo_blog_app/presentation/screens/auth/auth_imports.dart'
     as _i1;
 import 'package:flutter_journo_blog_app/presentation/screens/auth/login/login_imports.dart'
@@ -18,6 +18,8 @@ import 'package:flutter_journo_blog_app/presentation/screens/auth/register/regis
     as _i8;
 import 'package:flutter_journo_blog_app/presentation/screens/general/categories/categories_add/categories_add_imports.dart'
     as _i2;
+import 'package:flutter_journo_blog_app/presentation/screens/general/categories/categories_model.dart'
+    as _i13;
 import 'package:flutter_journo_blog_app/presentation/screens/general/categories/categories_update/categories_update_imports.dart'
     as _i3;
 import 'package:flutter_journo_blog_app/presentation/screens/general/general_imports.dart'
@@ -25,11 +27,11 @@ import 'package:flutter_journo_blog_app/presentation/screens/general/general_imp
 import 'package:flutter_journo_blog_app/presentation/screens/general/home/home_imports.dart'
     as _i5;
 import 'package:flutter_journo_blog_app/presentation/screens/general/home/home_model.dart'
-    as _i15;
+    as _i16;
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_add/tags_add_imports.dart'
     as _i10;
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_model.dart'
-    as _i13;
+    as _i14;
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/tags_update/tags_update_imports.dart'
     as _i11;
 import 'package:flutter_journo_blog_app/presentation/screens/onboard/onboard_imports.dart'
@@ -49,15 +51,19 @@ abstract class $AppRouter extends _i12.RootStackRouter {
       );
     },
     CategoriesAddRoute.name: (routeData) {
-      return _i12.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<_i13.CategoriesModel>(
         routeData: routeData,
         child: const _i2.CategoriesAdd(),
       );
     },
     CategoriesUpdateRoute.name: (routeData) {
-      return _i12.AutoRoutePage<dynamic>(
+      final args = routeData.argsAs<CategoriesUpdateRouteArgs>();
+      return _i12.AutoRoutePage<_i13.CategoriesModel>(
         routeData: routeData,
-        child: const _i3.CategoriesUpdate(),
+        child: _i3.CategoriesUpdate(
+          key: args.key,
+          category: args.category,
+        ),
       );
     },
     GeneralRoute.name: (routeData) {
@@ -101,14 +107,14 @@ abstract class $AppRouter extends _i12.RootStackRouter {
       );
     },
     TagsAddRoute.name: (routeData) {
-      return _i12.AutoRoutePage<_i13.TagsModel>(
+      return _i12.AutoRoutePage<_i14.TagsModel>(
         routeData: routeData,
         child: const _i10.TagsAdd(),
       );
     },
     TagsUpdateRoute.name: (routeData) {
       final args = routeData.argsAs<TagsUpdateRouteArgs>();
-      return _i12.AutoRoutePage<_i13.TagsModel>(
+      return _i12.AutoRoutePage<_i14.TagsModel>(
         routeData: routeData,
         child: _i11.TagsUpdate(
           key: args.key,
@@ -149,16 +155,41 @@ class CategoriesAddRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.CategoriesUpdate]
-class CategoriesUpdateRoute extends _i12.PageRouteInfo<void> {
-  const CategoriesUpdateRoute({List<_i12.PageRouteInfo>? children})
-      : super(
+class CategoriesUpdateRoute
+    extends _i12.PageRouteInfo<CategoriesUpdateRouteArgs> {
+  CategoriesUpdateRoute({
+    _i15.Key? key,
+    required _i13.Category category,
+    List<_i12.PageRouteInfo>? children,
+  }) : super(
           CategoriesUpdateRoute.name,
+          args: CategoriesUpdateRouteArgs(
+            key: key,
+            category: category,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'CategoriesUpdateRoute';
 
-  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+  static const _i12.PageInfo<CategoriesUpdateRouteArgs> page =
+      _i12.PageInfo<CategoriesUpdateRouteArgs>(name);
+}
+
+class CategoriesUpdateRouteArgs {
+  const CategoriesUpdateRouteArgs({
+    this.key,
+    required this.category,
+  });
+
+  final _i15.Key? key;
+
+  final _i13.Category category;
+
+  @override
+  String toString() {
+    return 'CategoriesUpdateRouteArgs{key: $key, category: $category}';
+  }
 }
 
 /// generated route for
@@ -179,8 +210,8 @@ class GeneralRoute extends _i12.PageRouteInfo<void> {
 /// [_i5.HomeDetails]
 class HomeDetailsRoute extends _i12.PageRouteInfo<HomeDetailsRouteArgs> {
   HomeDetailsRoute({
-    _i14.Key? key,
-    required _i15.Post post,
+    _i15.Key? key,
+    required _i16.Post post,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           HomeDetailsRoute.name,
@@ -203,9 +234,9 @@ class HomeDetailsRouteArgs {
     required this.post,
   });
 
-  final _i14.Key? key;
+  final _i15.Key? key;
 
-  final _i15.Post post;
+  final _i16.Post post;
 
   @override
   String toString() {
@@ -287,8 +318,8 @@ class TagsAddRoute extends _i12.PageRouteInfo<void> {
 /// [_i11.TagsUpdate]
 class TagsUpdateRoute extends _i12.PageRouteInfo<TagsUpdateRouteArgs> {
   TagsUpdateRoute({
-    _i14.Key? key,
-    required _i13.Tag tag,
+    _i15.Key? key,
+    required _i14.Tag tag,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           TagsUpdateRoute.name,
@@ -311,9 +342,9 @@ class TagsUpdateRouteArgs {
     required this.tag,
   });
 
-  final _i14.Key? key;
+  final _i15.Key? key;
 
-  final _i13.Tag tag;
+  final _i14.Tag tag;
 
   @override
   String toString() {

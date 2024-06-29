@@ -26,7 +26,7 @@ class TagsAddBloc extends Bloc<TagsAddEvent, TagsAddState> {
       if (responseData.status == 1) {
         emit(TagsAddSuccessState(messageModel: responseData));
         var newData = await tagsRepo.getAllTags();
-        emit(TagsAddNavigatedToTags(tagsModel: newData));
+        emit(TagsAddNavigatedToTagsState(tagsModel: newData));
       } else {
         emit(TagsAddFailedState(message: 'Failed to add tags'));
       }

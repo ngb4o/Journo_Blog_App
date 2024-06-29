@@ -57,7 +57,7 @@ class _TagsAddState extends State<TagsAdd> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('${state.messageModel.message}')),
             );
-          } else if (state is TagsAddNavigatedToTags) {
+          } else if (state is TagsAddNavigatedToTagsState) {
             AutoRouter.of(context).pop<TagsModel>(state.tagsModel);
           }
         },
@@ -73,7 +73,7 @@ class _TagsAddState extends State<TagsAdd> {
                   TextFieldCustom(
                     controller: titleController,
                     validator: (titleController) {
-                      if(titleController!.isEmpty) {
+                      if (titleController!.isEmpty) {
                         return 'Title is empty !';
                       }
                       return null;
@@ -85,7 +85,7 @@ class _TagsAddState extends State<TagsAdd> {
                   TextFieldCustom(
                     controller: titleController,
                     validator: (titleController) {
-                      if(titleController!.isEmpty) {
+                      if (titleController!.isEmpty) {
                         return 'Slug is empty !';
                       }
                       return null;
@@ -94,11 +94,7 @@ class _TagsAddState extends State<TagsAdd> {
                   ),
                   const Spacer(),
                   if (state is TagsAddLoadingState)
-                    Center(
-                      child: const CircularProgressIndicator(
-                        color: MyColors.primaryColor,
-                      ).pOnly(bottom: 20),
-                    )
+                    LoadingSpinkit.loadingButton.pOnly(bottom: 20)
                   else
                     PrimaryButton(
                       title: 'Add',

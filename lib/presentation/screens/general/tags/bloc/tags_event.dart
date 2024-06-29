@@ -5,7 +5,7 @@ sealed class TagsEvent {}
 
 class TagsInitialFetchEvent extends TagsEvent {}
 
-class TagsClickButtonAddEvent extends TagsEvent {}
+class TagsClickButtonNavigatedToTagsAddEvent extends TagsEvent {}
 
 class TagsUpdateEvent extends TagsEvent {
   final TagsModel updatedTags;
@@ -19,8 +19,8 @@ class TagsClickButtonRemoveTagsEvent extends TagsEvent {
   TagsClickButtonRemoveTagsEvent({required this.id});
 }
 
-class TagsClickButtonUpdateEvent extends TagsEvent {
+class TagsClickButtonNavigatedToTagsUpdateEvent extends TagsEvent {
   final Tag tag;
 
-  TagsClickButtonUpdateEvent({required this.tag});
+  TagsClickButtonNavigatedToTagsUpdateEvent({required this.tag});
 }

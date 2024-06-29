@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_journo_blog_app/data/repositories/auth_repo.dart';
+import 'package:flutter_journo_blog_app/data/repositories/categories_repo.dart';
 import 'package:flutter_journo_blog_app/data/repositories/posts_repo.dart';
 import 'package:flutter_journo_blog_app/data/repositories/tags_repo.dart';
 import 'package:flutter_journo_blog_app/presentation/router/router_imports.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/auth/login/bloc/login_bloc.dart';
+import 'package:flutter_journo_blog_app/presentation/screens/general/categories/bloc/categories_bloc.dart';
+import 'package:flutter_journo_blog_app/presentation/screens/general/categories/categories_add/bloc/categories_add_bloc.dart';
+import 'package:flutter_journo_blog_app/presentation/screens/general/categories/categories_update/bloc/categories_update_bloc.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/general/home/bloc/home_bloc.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/general/profile/bloc/profile_bloc.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/general/tags/bloc/tags_bloc.dart';
@@ -31,6 +35,11 @@ class MyApp extends StatelessWidget {
     final HomeBloc homeBloc = HomeBloc(PostsRepo());
     final TagsAddBloc tagsAddBloc = TagsAddBloc(TagsRepo());
     final TagsUpdateBloc tagsUpdateBloc = TagsUpdateBloc(TagsRepo());
+    final CategoriesBloc categoriesBloc = CategoriesBloc(CategoriesRepo());
+    final CategoriesAddBloc categoriesAddBloc =
+        CategoriesAddBloc(CategoriesRepo());
+    final CategoriesUpdateBloc categoriesUpdateBloc =
+        CategoriesUpdateBloc(CategoriesRepo());
 
     return ScreenUtilInit(
       designSize: const Size(390, 844),
@@ -56,6 +65,15 @@ class MyApp extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => tagsUpdateBloc,
+            ),
+            BlocProvider(
+              create: (context) => categoriesBloc,
+            ),
+            BlocProvider(
+              create: (context) => categoriesAddBloc,
+            ),
+            BlocProvider(
+              create: (context) => categoriesUpdateBloc,
             ),
           ],
           child: MaterialApp.router(

@@ -40,11 +40,7 @@ class _ProfileState extends State<Profile> {
       },
       builder: (BuildContext context, ProfileState state) {
         if (state is ProfileLoadingState) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: MyColors.primaryColor,
-            ),
-          );
+          return LoadingSpinkit.loadingPage;
         } else if (state is ProfileSuccessState) {
           var profileData = state.profileModel.userDetails;
           return Scaffold(
@@ -53,7 +49,7 @@ class _ProfileState extends State<Profile> {
               elevation: 0,
               automaticallyImplyLeading: false,
               actions: [
-                  GestureDetector(
+                GestureDetector(
                   onTap: () {
                     _logout();
                   },
@@ -85,10 +81,14 @@ class _ProfileState extends State<Profile> {
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: Column(
                           children: [
-                            CircleAvatar(
-                              radius: 70,
-                              backgroundImage: NetworkImage(
-                                  '${profileData!.profilePhotoUrl}'),
+                            CachedNetworkImage(
+                              imageUrl: '${profileData!.profilePhotoUrl}',
+                              imageBuilder: (context, imageProvider) =>
+                                  CircleAvatar(
+                                radius: 70,
+                                backgroundImage: imageProvider,
+                              ),
+                              placeholder: (context, url) => LoadingSpinkit.loadingImage,
                             ),
                             10.h.heightBox,
                             '${profileData.name}'.text.bold.xl2.white.make(),
@@ -162,6 +162,7 @@ class _ProfileState extends State<Profile> {
                                 children: [
                                   CachedNetworkImage(
                                     imageUrl: imagePath.toString(),
+                                    placeholder: (context, url) => LoadingSpinkit.loadingImage,
                                   ).cornerRadius(10),
                                   10.h.heightBox,
                                   Row(

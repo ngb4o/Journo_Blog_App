@@ -21,10 +21,10 @@ class TagsAddFailedState extends TagsAddActionState {
   TagsAddFailedState({required this.message});
 }
 
-class TagsAddNavigatedToTags extends TagsAddActionState {
+class TagsAddNavigatedToTagsState extends TagsAddActionState {
   final TagsModel tagsModel;
 
-  TagsAddNavigatedToTags({required this.tagsModel});
+  TagsAddNavigatedToTagsState({required this.tagsModel});
 
 }
 

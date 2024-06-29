@@ -8,7 +8,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   @override
   void initState() {
     context.read<HomeBloc>().add(HomeInitialFetchDataEvent());
@@ -26,9 +25,7 @@ class _HomeState extends State<Home> {
       builder: (context, state) {
         if (state is HomeLoadingState) {
           return const Center(
-            child: CircularProgressIndicator(
-              color: MyColors.primaryColor,
-            ),
+            child: LoadingSpinkit.loadingPage,
           );
         } else if (state is HomeSuccessState) {
           return Scaffold(
@@ -48,6 +45,10 @@ class _HomeState extends State<Home> {
                               state.homeModel.popularPosts![index];
                           return CachedNetworkImage(
                             imageUrl: lastestPost.featuredimage.toString(),
+                            placeholder: (context, url) =>
+                                LoadingSpinkit.loadingImage,
+                            errorWidget: (context, url, error) =>
+                                const Icon(Icons.error),
                             fit: BoxFit.cover,
                           ).cornerRadius(20).pSymmetric(h: 10);
                         },
@@ -83,8 +84,12 @@ class _HomeState extends State<Home> {
                                   Hero(
                                     tag: Key(lastestPosts.id.toString()),
                                     child: CachedNetworkImage(
-                                      imageUrl: lastestPosts.featuredimage
-                                          .toString(),
+                                      imageUrl:
+                                          lastestPosts.featuredimage.toString(),
+                                      placeholder: (context, url) =>
+                                          LoadingSpinkit.loadingImage,
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error),
                                       width: 160,
                                       height: 100,
                                       fit: BoxFit.cover,
