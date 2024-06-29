@@ -7,6 +7,7 @@ import 'package:flutter_journo_blog_app/core/contants/my_assets.dart';
 import 'package:flutter_journo_blog_app/core/contants/my_colors.dart';
 import 'package:flutter_journo_blog_app/data/repositories/auth_repo.dart';
 import 'package:flutter_journo_blog_app/presentation/common_widgets/common_widget_imports.dart';
+import 'package:flutter_journo_blog_app/presentation/common_widgets/loading.dart';
 import 'package:flutter_journo_blog_app/presentation/router/router_imports.gr.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/auth/login/bloc/login_bloc.dart';
 import 'package:flutter_journo_blog_app/presentation/screens/auth/login/widgets/widget_imports.dart';
