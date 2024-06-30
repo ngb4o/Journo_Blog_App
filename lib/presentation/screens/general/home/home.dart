@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
                                               .toString()
                                               .text
                                               .color(Colors.grey)
-                                              .make(),
+                                              .make().expand(),
                                         ],
                                       ),
                                       6.h.heightBox,

@@ -16,8 +16,8 @@ class LoadingSpinkit {
   );
 
   //Loading Button
-  static const loadingButton = SpinKitHourGlass(
+  static const loadingButton = SpinKitWave(
     color: MyColors.primaryColor,
-    size: 50.0,
+    size: 40.0,
   );
 }
