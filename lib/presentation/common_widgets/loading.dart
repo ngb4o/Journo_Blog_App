@@ -6,18 +6,18 @@ class LoadingSpinkit {
   //Loading Page
   static const loadingPage = SpinKitFadingCube(
     color: MyColors.primaryColor,
-    size: 45,
+    size: 30,
   );
 
   //Loading Image
   static const loadingImage = SpinKitFadingCircle(
     color: MyColors.primaryColor,
-    size: 35.0,
+    size: 25.0,
   );
 
   //Loading Button
-  static const loadingButton = SpinKitWave(
+  static const loadingButton = SpinKitRing(
     color: MyColors.primaryColor,
-    size: 40.0,
+    size: 35.0,
   );
 }

@@ -37,6 +37,7 @@ class _HomeState extends State<Home> {
                   child: Column(
                     children: [
                       VxSwiper.builder(
+                        height: 180,
                         autoPlay: true,
                         enlargeCenterPage: true,
                         itemCount: state.homeModel.popularPosts!.length,
@@ -50,21 +51,24 @@ class _HomeState extends State<Home> {
                             errorWidget: (context, url, error) =>
                                 const Icon(Icons.error),
                             fit: BoxFit.cover,
-                          ).cornerRadius(20).pSymmetric(h: 10);
+                          ).cornerRadius(20);
                         },
                       ),
                       20.h.heightBox,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          'Latest Post'.text.size(15).make(),
-                          'See All'.text.size(15).make(),
+                          'Latest Post'.text.size(13).make(),
+                          'See All'.text.size(13).make(),
                         ],
                       ).pSymmetric(h: 20.w),
                       10.h.heightBox,
                       ListView.separated(
                         padding: EdgeInsets.only(
-                            left: 20.w, right: 20.w, bottom: 25),
+                          left: 20.w,
+                          right: 20.w,
+                          bottom: 25,
+                        ),
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         // tat cuon
@@ -90,7 +94,7 @@ class _HomeState extends State<Home> {
                                           LoadingSpinkit.loadingImage,
                                       errorWidget: (context, url, error) =>
                                           const Icon(Icons.error),
-                                      width: 160,
+                                      width: 145,
                                       height: 100,
                                       fit: BoxFit.cover,
                                     ).cornerRadius(20),
@@ -102,7 +106,7 @@ class _HomeState extends State<Home> {
                                     children: [
                                       '${lastestPosts.title}'
                                           .text
-                                          .size(16)
+                                          .size(14)
                                           .bold
                                           .maxLines(2)
                                           .color(Colors.black)
@@ -114,7 +118,7 @@ class _HomeState extends State<Home> {
                                         children: [
                                           const Icon(
                                             FeatherIcons.clock,
-                                            size: 18,
+                                            size: 13,
                                             color: Colors.grey,
                                           ),
                                           5.w.widthBox,
@@ -122,8 +126,10 @@ class _HomeState extends State<Home> {
                                               .timeAgo()
                                               .toString()
                                               .text
+                                              .size(12)
                                               .color(Colors.grey)
-                                              .make().expand(),
+                                              .make()
+                                              .expand(),
                                         ],
                                       ),
                                       6.h.heightBox,
@@ -134,11 +140,12 @@ class _HomeState extends State<Home> {
                                           '${lastestPosts.views} Views'
                                               .text
                                               .color(Colors.grey)
+                                              .size(12)
                                               .make(),
                                           const Icon(
                                             FeatherIcons.bookmark,
                                             color: Colors.grey,
-                                            size: 22,
+                                            size: 14,
                                           ),
                                         ],
                                       ),
