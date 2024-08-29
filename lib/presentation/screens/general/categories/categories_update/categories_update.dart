@@ -118,6 +118,5 @@ class _CategoriesUpdateState extends State<CategoriesUpdate> {
         );
       },
     );
-    ;
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter_journo_blog_app/presentation/common_widgets/loading.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -13,7 +12,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../../../core/contants/my_colors.dart';
 
 part 'home.dart';
 part 'home_view_model.dart';

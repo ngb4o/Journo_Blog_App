@@ -24,7 +24,7 @@ class AuthRepo extends ApiClient {
       } else {
         throw Exception('Login failed');
       }
-    } on Exception catch (e) {
+    } on Exception {
       throw Exception('Login failed');
     }
   }
@@ -42,7 +42,7 @@ class AuthRepo extends ApiClient {
       } else {
         throw Exception('Logout failed');
       }
-    } on Exception catch (e) {
+    } on Exception {
       throw Exception('Logout failed');
     }
   }

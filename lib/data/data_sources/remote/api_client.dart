@@ -16,8 +16,7 @@ class ApiClient {
   Options options = Options();
 
   //GET REQUEST
-  Future<Response> getRequest(
-      {required String path, bool isTokenRequired = false}) async {
+  Future<Response> getRequest({required String path, bool isTokenRequired = false}) async {
     if (isTokenRequired == true) {
       var token = await Utils.getToken();
 

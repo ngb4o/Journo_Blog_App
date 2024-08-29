@@ -6,8 +6,6 @@ import 'package:flutter_journo_blog_app/presentation/screens/general/categories/
 import 'package:meta/meta.dart';
 
 import '../../../../../data/repositories/categories_repo.dart';
-import '../categories_imports.dart';
-import '../categories_model.dart';
 
 part 'categories_event.dart';
 

@@ -15,7 +15,7 @@ class PostsRepo extends ApiClient {
       } else {
         throw Exception('Get Fail');
       }
-    } on Exception catch (e) {
+    } on Exception {
       throw Exception('Error');
     }
   }
